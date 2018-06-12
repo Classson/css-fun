@@ -1,0 +1,59 @@
+:root {
+  --red: rgb(217,	0,	17);
+  --pink: rgb(186, 160, 132);
+  --orange: rgb(200, 116, 63);
+  --green: rgb(9,	113, 102);
+  --gray: rgb(38, 38, 38);
+}
+
+body {
+    background: var(--gray);
+}
+
+h1 {
+  position: relative;
+  text-align: center;
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 60px;
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+h1:hover {
+  transform: scale(1.1);
+}
+
+.red {
+  color: var(--red);
+  animation: color-change 1s infinite;
+  animation-fill-mode: forwards;
+}
+.pink {
+  color: var(--pink);
+}
+.green {
+  color: var(--green);
+}
+.orange {
+  color: var(--orange);
+  animation: color-change 2s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 200px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+
+@keyframes color-change {
+    0% { color: var(--red); }
+    100% { color: var(--orange); }
+}
