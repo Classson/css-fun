@@ -150,19 +150,36 @@
 //Flatten a nested array. You must account for varying levels of nesting.
 
 
-function steamrollArray(arr) {
-    let currentArr = [];
-    for(let i = 0 ; i < arr.length; i++){
-        let elem = arr[i];
-        if(Array.isArray(elem)){
-            currentArr = currentArr.concat(steamrollArray(elem));
-        } else {
-            currentArr.push(elem);
-        }
-    }
-    console.log(currentArr);
-    return currentArr;
+//function steamrollArray(arr) {
+//    let currentArr = [];
+//    for(let i = 0 ; i < arr.length; i++){
+//        let elem = arr[i];
+//        if(Array.isArray(elem)){
+//            currentArr = currentArr.concat(steamrollArray(elem));
+//        } else {
+//            currentArr.push(elem);
+//        }
+//    }
+//    console.log(currentArr);
+//    return currentArr;
+//}
+//
+//steamrollArray(['a', ['b']]);
+
+//Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+//
+//In other words, you are given an array collection of objects. The predicate pre will be an object property and you need to return true if its value is truthy. Otherwise, return false.
+
+function truthCheck(collection, pre) {
+  for(let i = 0; i < collection.length; i++){
+     let currentObj = collection[i];
+      if(!currentObj[pre]){
+          return false;
+      }
+  }
+    
+  return true;
 }
 
-steamrollArray(['a', ['b']]);
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
 
