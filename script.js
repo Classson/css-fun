@@ -37,12 +37,31 @@
 
 //Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 
-function spinalCase(str) {
-    let wordsArr = str.split(/(?=[A-Z])| |_/g);
-    let newStr = wordsArr.join("-").toLocaleLowerCase();
-    //let wordsArr = str.split(/ |_/g);
-    console.log(newStr);
-  
+//function spinalCase(str) {
+//    let wordsArr = str.split(/(?=[A-Z])| |_/g);
+//    let newStr = wordsArr.join("-").toLocaleLowerCase();
+//    return newStr;
+//  
+//}
+//
+//spinalCase('ThisIs Spinal tap');
+
+//Find the missing letter in the passed letter range and return it.
+//
+//If all letters are present in the range, return undefined.
+
+
+function fearNotLetter(str) {
+    let alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    let letterArr = str.toLowerCase().split('');
+    
+    for(let i = 1; i < str.length; i++){
+        let ind = alpha.indexOf(letterArr[i]);
+        if(ind !== alpha.indexOf(letterArr[i-1])+1){
+            console.log(alpha[alpha.indexOf(letterArr[i-1])+1]);
+            return alpha[alpha.indexOf(letterArr[i-1])+1];
+        }
+    }
 }
 
-spinalCase('ThisIs Spinal tap');
+fearNotLetter("abce");
