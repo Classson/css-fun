@@ -130,19 +130,39 @@
 //
 //Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
 
-function dropElements(arr, func) {
-    let newArr = [];
-    let count = 0;
-    for(let i = 0; i < arr.length; i++){
-        if(func(arr[i])){
-            arr.splice(0, count);
-            console.log(arr);
-            return arr;
-        }else{
-            count++;
+//function dropElements(arr, func) {
+//    let newArr = [];
+//    let count = 0;
+//    for(let i = 0; i < arr.length; i++){
+//        if(func(arr[i])){
+//            arr.splice(0, count);
+//            console.log(arr);
+//            return arr;
+//        }else{
+//            count++;
+//        }
+//    }
+//    return [];
+//}
+//
+//dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
+
+//Flatten a nested array. You must account for varying levels of nesting.
+
+
+function steamrollArray(arr) {
+    let currentArr = [];
+    for(let i = 0 ; i < arr.length; i++){
+        let elem = arr[i];
+        if(Array.isArray(elem)){
+            currentArr = currentArr.concat(steamrollArray(elem));
+        } else {
+            currentArr.push(elem);
         }
     }
-    return [];
+    console.log(currentArr);
+    return currentArr;
 }
 
-dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
+steamrollArray(['a', ['b']]);
+
