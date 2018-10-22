@@ -68,31 +68,59 @@
 
 //Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
 
-function sumFibs(num) {
-    let numArr = [];
-    let oddArr = [];
+//function sumFibs(num) {
+//    let numArr = [];
+//    let oddArr = [];
+//    let sum = 0;
+//    for(let i = 1; i <=num; i++){
+//        if(i <= 2){
+//            numArr.push(1);
+//        }else{
+//            let nextNum = numArr[i-2] + numArr[i-3];
+//            if(nextNum > num){
+//                break;
+//            } else {
+//                numArr.push(nextNum);
+//            }
+//        }
+//    }
+//
+//    for(let i = 0; i < numArr.length; i++){
+//        if(numArr[i] % 2 === 1){
+//            oddArr.push(numArr[i]);
+//            sum+= numArr[i];
+//        }
+//    }
+//    console.log(oddArr);
+//    return sum;
+//}
+//
+//sumFibs(75025);
+
+//Sum all the prime numbers up to and including the provided number.
+//
+//A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+//
+//The provided number may not be a prime.
+
+
+
+
+function sumPrimes(num) {
     let sum = 0;
-    for(let i = 1; i <=num; i++){
-        if(i <= 2){
-            numArr.push(1);
-        }else{
-            let nextNum = numArr[i-2] + numArr[i-3];
-            if(nextNum > num){
-                break;
-            } else {
-                numArr.push(nextNum);
+    for(let i = 2; i <= num; i++){
+        let currentNum = i;
+        let isPrime = true;
+        for(let j = 2; j < currentNum; j++){
+            if(currentNum % j === 0){
+                isPrime = false;
             }
         }
-    }
-
-    for(let i = 0; i < numArr.length; i++){
-        if(numArr[i] % 2 === 1){
-            oddArr.push(numArr[i]);
-            sum+= numArr[i];
+        if(isPrime === true){
+            sum+= currentNum;
         }
     }
-    console.log(oddArr);
-    return sum;
+    console.log(sum);
 }
 
-sumFibs(75025);
+sumPrimes(977);
