@@ -51,17 +51,48 @@
 //If all letters are present in the range, return undefined.
 
 
-function fearNotLetter(str) {
-    let alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    let letterArr = str.toLowerCase().split('');
-    
-    for(let i = 1; i < str.length; i++){
-        let ind = alpha.indexOf(letterArr[i]);
-        if(ind !== alpha.indexOf(letterArr[i-1])+1){
-            console.log(alpha[alpha.indexOf(letterArr[i-1])+1]);
-            return alpha[alpha.indexOf(letterArr[i-1])+1];
+//function fearNotLetter(str) {
+//    let alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+//    let letterArr = str.toLowerCase().split('');
+//    
+//    for(let i = 1; i < str.length; i++){
+//        let ind = alpha.indexOf(letterArr[i]);
+//        if(ind !== alpha.indexOf(letterArr[i-1])+1){
+//            console.log(alpha[alpha.indexOf(letterArr[i-1])+1]);
+//            return alpha[alpha.indexOf(letterArr[i-1])+1];
+//        }
+//    }
+//}
+//
+//fearNotLetter("abce");
+
+//Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+function sumFibs(num) {
+    let numArr = [];
+    let oddArr = [];
+    let sum = 0;
+    for(let i = 1; i <=num; i++){
+        if(i <= 2){
+            numArr.push(1);
+        }else{
+            let nextNum = numArr[i-2] + numArr[i-3];
+            if(nextNum > num){
+                break;
+            } else {
+                numArr.push(nextNum);
+            }
         }
     }
+
+    for(let i = 0; i < numArr.length; i++){
+        if(numArr[i] % 2 === 1){
+            oddArr.push(numArr[i]);
+            sum+= numArr[i];
+        }
+    }
+    console.log(oddArr);
+    return sum;
 }
 
-fearNotLetter("abce");
+sumFibs(75025);
