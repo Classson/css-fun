@@ -106,21 +106,43 @@
 
 
 
-function sumPrimes(num) {
-    let sum = 0;
-    for(let i = 2; i <= num; i++){
-        let currentNum = i;
-        let isPrime = true;
-        for(let j = 2; j < currentNum; j++){
-            if(currentNum % j === 0){
-                isPrime = false;
-            }
-        }
-        if(isPrime === true){
-            sum+= currentNum;
+//function sumPrimes(num) {
+//    let sum = 0;
+//    for(let i = 2; i <= num; i++){
+//        let currentNum = i;
+//        let isPrime = true;
+//        for(let j = 2; j < currentNum; j++){
+//            if(currentNum % j === 0){
+//                isPrime = false;
+//            }
+//        }
+//        if(isPrime === true){
+//            sum+= currentNum;
+//        }
+//    }
+//    console.log(sum);
+//}
+//
+//sumPrimes(977);
+
+
+// Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+//
+//Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+
+function dropElements(arr, func) {
+    let newArr = [];
+    let count = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(func(arr[i])){
+            arr.splice(0, count);
+            console.log(arr);
+            return arr;
+        }else{
+            count++;
         }
     }
-    console.log(sum);
+    return [];
 }
 
-sumPrimes(977);
+dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
