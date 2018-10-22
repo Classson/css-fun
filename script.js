@@ -170,16 +170,37 @@
 //
 //In other words, you are given an array collection of objects. The predicate pre will be an object property and you need to return true if its value is truthy. Otherwise, return false.
 
-function truthCheck(collection, pre) {
-  for(let i = 0; i < collection.length; i++){
-     let currentObj = collection[i];
-      if(!currentObj[pre]){
-          return false;
-      }
-  }
-    
-  return true;
+//function truthCheck(collection, pre) {
+//  for(let i = 0; i < collection.length; i++){
+//     let currentObj = collection[i];
+//      if(!currentObj[pre]){
+//          return false;
+//      }
+//  }
+//    
+//  return true;
+//}
+//
+//truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+//Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+//
+//For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+
+function addTogether(a, b) {
+    console.log(b);
+  if((typeof a === 'number') && (typeof b === 'number')){
+      return a+b;
+  } 
+    else if(typeof a === 'number' && typeof b === 'undefined'){
+        console.log('running');
+        return function(num){
+            if(typeof num === 'number')
+            return num + a;
+        }
+    }
+
 }
 
-truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
 
+console.log(addTogether(2)([3]));
