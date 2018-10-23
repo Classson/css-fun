@@ -210,29 +210,40 @@
 //
 //For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
 
-function smallestCommons(arr) {
-    let range = [];
-    let resultNum = null;
-    arr.sort((a,b) => a-b);
-    
-    for(let i = arr[0]; i <= arr[1]; i++){
-        range.push(i);
-    }
+//function smallestCommons(arr) {
+//    let range = [];
+//    let resultNum = null;
+//    arr.sort((a,b) => a-b);
+//    
+//    for(let i = arr[0]; i <= arr[1]; i++){
+//        range.push(i);
+//    }
+//
+//    for(let i = arr[0]; !resultNum; i++){
+//        let testNum = i;
+//        let result = true;
+//        for(let j = range[0]; j <= range[range.length-1]; j++){
+//            if(testNum % j !== 0){
+//                result = false;
+//            }
+//        }
+//        if(result === true){
+//            return testNum;
+//        }
+//    }
+//}
+//
+//
+//smallestCommons([1, 5]);
+//
+//Return an English translated sentence of the passed binary string.
+//
+//The binary string will be space separated.
 
-    for(let i = arr[0]; !resultNum; i++){
-        let testNum = i;
-        let result = true;
-        for(let j = range[0]; j <= range[range.length-1]; j++){
-            if(testNum % j !== 0){
-                result = false;
-            }
-        }
-        if(result === true){
-            return testNum;
-        }
-    }
+function binaryAgent(str) {
+    let arr = str.split(" ");
+    console.log(arr);
+    
 }
 
-
-smallestCommons([1, 5]);
-
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
