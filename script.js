@@ -313,19 +313,41 @@
 //
 //binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
 
-function uniteUnique(arr) {
-    let newArr = [];
-    let finalArr = [];
-    for(let i = 0; i < arguments.length; i++){
-        newArr = newArr.concat(arguments[i]);
-    }
-    
-    for(let i = 0; i < newArr.length; i++){
-        if(finalArr.indexOf(newArr[i]) === -1){
-            finalArr.push(newArr[i])
+//function uniteUnique(arr) {
+//    let newArr = [];
+//    let finalArr = [];
+//    for(let i = 0; i < arguments.length; i++){
+//        newArr = newArr.concat(arguments[i]);
+//    }
+//    
+//    for(let i = 0; i < newArr.length; i++){
+//        if(finalArr.indexOf(newArr[i]) === -1){
+//            finalArr.push(newArr[i])
+//        }
+//    }
+//        console.log(finalArr);
+//}
+//
+//uniteUnique([1, 3, 2], [1, [5]], [2, [4]]);
+//
+//Return true if the given string is a palindrome. Otherwise, return false.
+//
+//A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+//
+//Note
+//You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check for palindromes.
+
+function palindrome(str) {
+    let newStr = str.toLowerCase().replace(/\W|_/ig, '');
+    for(let i = 0; i < newStr.length; i++){
+        if(newStr[i] !== newStr[(newStr.length-1)-i]){
+            return false;
         }
     }
-        console.log(finalArr);
+  return true;
 }
 
-uniteUnique([1, 3, 2], [1, [5]], [2, [4]]);
+
+console.log(palindrome("0_0 (: /-\ :) 0-0"));
+
+
