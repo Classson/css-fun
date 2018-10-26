@@ -337,17 +337,36 @@
 //Note
 //You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check for palindromes.
 
-function palindrome(str) {
-    let newStr = str.toLowerCase().replace(/\W|_/ig, '');
-    for(let i = 0; i < newStr.length; i++){
-        if(newStr[i] !== newStr[(newStr.length-1)-i]){
-            return false;
+//function palindrome(str) {
+//    let newStr = str.toLowerCase().replace(/\W|_/ig, '');
+//    for(let i = 0; i < newStr.length; i++){
+//        if(newStr[i] !== newStr[(newStr.length-1)-i]){
+//            return false;
+//        }
+//    }
+//  return true;
+//}
+//
+//
+//console.log(palindrome("0_0 (: /-\ :) 0-0"));
+//
+
+//Return true if the passed string looks like a valid US phone number.
+
+
+function telephoneCheck(str) {
+  let numStr = str.replace(/\D/ig, '');
+  if(numStr.length === 10){
+      return true;
+  }
+  if (numStr.length === 11){
+        if(numStr[0] === '1'){
+            return "true";
         }
     }
-  return true;
+    return false;
 }
 
 
-console.log(palindrome("0_0 (: /-\ :) 0-0"));
-
+console.log(telephoneCheck("1 456 789 4444"));
 
