@@ -355,20 +355,38 @@
 
 
 function telephoneCheck(str) {
-    let regEx = /\)|\(|\d|\-/g;
-    let numArr = str.match(regEx);
-    console.log(numArr);
-//    if(numStr.length === 10){
-//      return true;
-//    }
-//    if (numStr.length === 11){
-//        if(numStr[0] === '1'){
-//            return "true";
-//        }
-//    }
-//    return false
+    if(str[0]==='-'){
+        console.log('running');
+        return false;
+    }
+    console.log(str.indexOf('?'));
+    if(str.indexOf('?') !== -1){
+        console.log('running');
+        return false;
+    }
+    if(str[0]=== "(" && str[str.length-1] === ")"){
+        return false;
+    }
+    let regExParth = /\)|\(/g;
+    if(str.match(regExParth) && str.match(regExParth).length % 2 !== 0){
+        console.log('running');
+        return false;
+    }
+    let numStr = str.replace(/\D/g, '');
+    if(numStr[0] === '1'){
+      if(numStr.length === 11){
+          return true;
+      } else {
+          return false;
+      }
+    }
+    if(numStr.length === 10){
+        return true;
+    }
+    
+    return false;
 }
 
 
-console.log(telephoneCheck("1 456() 789-- (4444"));
+console.log(telephoneCheck("1 555-555-5555"));
 
