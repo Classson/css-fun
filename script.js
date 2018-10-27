@@ -210,31 +210,33 @@
 //
 //For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
 
-//function smallestCommons(arr) {
-//    let range = [];
-//    let resultNum = null;
-//    arr.sort((a,b) => a-b);
-//    
-//    for(let i = arr[0]; i <= arr[1]; i++){
-//        range.push(i);
-//    }
-//
-//    for(let i = arr[0]; !resultNum; i++){
-//        let testNum = i;
-//        let result = true;
-//        for(let j = range[0]; j <= range[range.length-1]; j++){
-//            if(testNum % j !== 0){
-//                result = false;
-//            }
-//        }
-//        if(result === true){
-//            return testNum;
-//        }
-//    }
-//}
-//
-//
-//smallestCommons([1, 5]);
+function smallestCommons(arr) {
+    let range = [];
+    let resultNum = null;
+    arr.sort((a,b) => a-b);
+    
+    for(let i = arr[1]; i >= arr[0]; i--){
+        range.push(i);
+    }
+
+    for(let i = arr[0]; !resultNum; i++){
+        let testNum = i;
+        console.log(i);
+        let result = true;
+        for(let j = range[range.length-1]; j >= range[0]; j--){
+            if(testNum % j !== 0){
+                result = false;
+            }
+        }
+        if(result === true){
+            console.log('result is ' + testNum);
+            return testNum;
+        }
+    }
+}
+
+
+smallestCommons([1, 5]);
 //
 //Return an English translated sentence of the passed binary string.
 //
@@ -399,26 +401,26 @@
 //The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
 
 
-function orbitalPeriod(arr) {
-    let GM = 398600.4418;
-    let earthRadius = 6367.4447;
-
-        const getOrb = (altNum) => {
-        let semMajAx = altNum + earthRadius;
-        let semMajAx3 = semMajAx * semMajAx * semMajAx;
-        let semMajAx3OvGM = semMajAx3/GM;
-        let resultSqr = Math.sqrt(semMajAx3OvGM);
-        let orbPerSec = 2 * Math.PI * resultSqr;
-        return orbPerSec.toFixed(0);
-    }
-    
-    for(let i = 0; i < arr.length; i++){
-        let currentObj = arr[i];
-        currentObj.orbitalPeriod = parseInt(getOrb(currentObj.avgAlt));
-        delete currentObj.avgAlt;
-    }
-    console.log(arr);
-    return arr;
-}
-
-orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}])
+//function orbitalPeriod(arr) {
+//    let GM = 398600.4418;
+//    let earthRadius = 6367.4447;
+//
+//        const getOrb = (altNum) => {
+//        let semMajAx = altNum + earthRadius;
+//        let semMajAx3 = semMajAx * semMajAx * semMajAx;
+//        let semMajAx3OvGM = semMajAx3/GM;
+//        let resultSqr = Math.sqrt(semMajAx3OvGM);
+//        let orbPerSec = 2 * Math.PI * resultSqr;
+//        return orbPerSec.toFixed(0);
+//    }
+//    
+//    for(let i = 0; i < arr.length; i++){
+//        let currentObj = arr[i];
+//        currentObj.orbitalPeriod = parseInt(getOrb(currentObj.avgAlt));
+//        delete currentObj.avgAlt;
+//    }
+//    console.log(arr);
+//    return arr;
+//}
+//
+//orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}])
