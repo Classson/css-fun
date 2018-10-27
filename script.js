@@ -402,9 +402,8 @@
 function orbitalPeriod(arr) {
     let GM = 398600.4418;
     let earthRadius = 6367.4447;
-    let resultArr = [];
-    
-    const getOrb = (altNum) => {
+
+        const getOrb = (altNum) => {
         let semMajAx = altNum + earthRadius;
         let semMajAx3 = semMajAx * semMajAx * semMajAx;
         let semMajAx3OvGM = semMajAx3/GM;
@@ -414,14 +413,12 @@ function orbitalPeriod(arr) {
     }
     
     for(let i = 0; i < arr.length; i++){
-        let currentObj = {
-            name: arr[i].name,
-            orbitalPeriod: getOrb(arr[i].avgAlt)
-        };
-        resultArr.push(currentObj);
+        let currentObj = arr[i];
+        currentObj.orbitalPeriod = parseInt(getOrb(currentObj.avgAlt));
+        delete currentObj.avgAlt;
     }
-    console.log(resultArr);
-    return resultArr;
+    console.log(arr);
+    return arr;
 }
 
 orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}])
