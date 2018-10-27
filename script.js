@@ -353,40 +353,56 @@
 
 //Return true if the passed string looks like a valid US phone number.
 
+//
+//function telephoneCheck(str) {
+//    if(str[0]==='-'){
+//        console.log('running');
+//        return false;
+//    }
+//    console.log(str.indexOf('?'));
+//    if(str.indexOf('?') !== -1){
+//        console.log('running');
+//        return false;
+//    }
+//    if(str[0]=== "(" && str[str.length-1] === ")"){
+//        return false;
+//    }
+//    let regExParth = /\)|\(/g;
+//    if(str.match(regExParth) && str.match(regExParth).length % 2 !== 0){
+//        console.log('running');
+//        return false;
+//    }
+//    let numStr = str.replace(/\D/g, '');
+//    if(numStr[0] === '1'){
+//      if(numStr.length === 11){
+//          return true;
+//      } else {
+//          return false;
+//      }
+//    }
+//    if(numStr.length === 10){
+//        return true;
+//    }
+//    
+//    return false;
+//}
+//
+//
+//console.log(telephoneCheck("1 555-555-5555"));
 
-function telephoneCheck(str) {
-    if(str[0]==='-'){
-        console.log('running');
-        return false;
-    }
-    console.log(str.indexOf('?'));
-    if(str.indexOf('?') !== -1){
-        console.log('running');
-        return false;
-    }
-    if(str[0]=== "(" && str[str.length-1] === ")"){
-        return false;
-    }
-    let regExParth = /\)|\(/g;
-    if(str.match(regExParth) && str.match(regExParth).length % 2 !== 0){
-        console.log('running');
-        return false;
-    }
-    let numStr = str.replace(/\D/g, '');
-    if(numStr[0] === '1'){
-      if(numStr.length === 11){
-          return true;
-      } else {
-          return false;
-      }
-    }
-    if(numStr.length === 10){
-        return true;
-    }
-    
-    return false;
+//Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+//
+//The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+//
+//The values should be rounded to the nearest whole number. The body being orbited is Earth.
+//
+//The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
+
+
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  return arr;
 }
 
-
-console.log(telephoneCheck("1 555-555-5555"));
-
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
