@@ -210,32 +210,32 @@
 //
 //For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
 
-function smallestCommons(arr) {
-    let range = [];
-    let resultNum = null;
-    arr.sort((a,b) => a-b);
-    
-    for(let i = arr[1]; i >= arr[0]; i--){
-        range.push(i);
-    }
-
-    for(let i = arr[0]; !resultNum; i++){
-        let testNum = i;
-        let result = true;
-        for(let j = range[0]; j >= range[range.length-1]; j--){
-            if(testNum % j !== 0){
-                result = false;
-            }
-        }
-        if(result === true){
-            console.log('result is ' + testNum);
-            return testNum;
-        }
-    }
-}
-
-
-smallestCommons([1, 13]);
+//function smallestCommons(arr) {
+//    let range = [];
+//    let resultNum = null;
+//    arr.sort((a,b) => a-b);
+//    
+//    for(let i = arr[1]; i >= arr[0]; i--){
+//        range.push(i);
+//    }
+//
+//    for(let i = arr[0]; !resultNum; i++){
+//        let testNum = i;
+//        let result = true;
+//        for(let j = range[0]; j >= range[range.length-1]; j--){
+//            if(testNum % j !== 0){
+//                result = false;
+//            }
+//        }
+//        if(result === true){
+//            console.log('result is ' + testNum);
+//            return testNum;
+//        }
+//    }
+//}
+//
+//
+//smallestCommons([1, 13]);
 //
 //Return an English translated sentence of the passed binary string.
 //
@@ -423,3 +423,23 @@ smallestCommons([1, 13]);
 //}
 //
 //orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}])
+//
+//Fill in the object constructor with the following methods below:
+//
+//getFirstName() getLastName() getFullName() setFirstName(first) setLastName(last) setFullName(firstAndLast)
+//Run the tests to see the expected output for each method.
+//
+//The methods that take an argument must accept only one argument and it has to be a string.
+//
+//These methods must be the only available means of interacting with the object.
+
+var Person = function(firstAndLast) {
+  // Complete the method below and implement the others similarly
+  this.getFullName = function() {
+    return "";
+  };
+  return firstAndLast;
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
