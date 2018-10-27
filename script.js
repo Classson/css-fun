@@ -221,9 +221,8 @@ function smallestCommons(arr) {
 
     for(let i = arr[0]; !resultNum; i++){
         let testNum = i;
-        console.log(i);
         let result = true;
-        for(let j = range[range.length-1]; j >= range[0]; j--){
+        for(let j = range[0]; j >= range[range.length-1]; j--){
             if(testNum % j !== 0){
                 result = false;
             }
@@ -236,7 +235,7 @@ function smallestCommons(arr) {
 }
 
 
-smallestCommons([1, 5]);
+smallestCommons([1, 13]);
 //
 //Return an English translated sentence of the passed binary string.
 //
