@@ -355,18 +355,20 @@
 
 
 function telephoneCheck(str) {
-  let numStr = str.replace(/\D/ig, '');
-  if(numStr.length === 10){
-      return true;
-  }
-  if (numStr.length === 11){
-        if(numStr[0] === '1'){
-            return "true";
-        }
-    }
-    return false;
+    let regEx = /\)|\(|\d|\-/g;
+    let numArr = str.match(regEx);
+    console.log(numArr);
+//    if(numStr.length === 10){
+//      return true;
+//    }
+//    if (numStr.length === 11){
+//        if(numStr[0] === '1'){
+//            return "true";
+//        }
+//    }
+//    return false
 }
 
 
-console.log(telephoneCheck("1 456 789 4444"));
+console.log(telephoneCheck("1 456() 789-- (4444"));
 
