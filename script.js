@@ -518,34 +518,55 @@
 
 //Write a method that, when given a number, returns the number of factors of that number (including the number itself) that are prime. You may wish to write two helper methods: prime?(n) and factors(n).
 
-const primes = (num) => {
-    let count = 0;
-    const isFact = (posFact) => {
-        if(num % posFact === 0){
-            return true;
-        }
-        return false;
+//const primes = (num) => {
+//    let count = 0;
+//    const isFact = (posFact) => {
+//        if(num % posFact === 0){
+//            return true;
+//        }
+//        return false;
+//    }
+//    
+//    const isPrime = (posPrime) => {
+//        if(posPrime === 2){
+//            return true;
+//        }
+//        for(let i = 2; i < posPrime; i++){
+//            if(posPrime % i === 0){
+//                return false;
+//            }
+//            return true;
+//        }
+//    }
+//
+//   for(let i = 2; i <= num; i++){
+//       if((isFact(i)) && (isPrime(i))){
+//           console.log(i);
+//           count++;
+//       }
+//   }
+//    return count;
+//}
+//
+//console.log(primes(12));
+
+//Write a method that accepts two strings as arguments. If the second string can be spelled using letters from the first, return an array of the indices of the letters of the second string as they occur in the first (choose the earlier occurrence if a letter occurs more than once). Otherwise, return false. The second string may reuse letters from the first.
+//Examples:
+//wordplay('substandard', 'bad') => [2, 5, 7]
+//wordplay('shadowless', 'dashes') => [3, 2, 0, 1, 7, 0]
+//wordplay('cartoon', 'lineograph') => false
+
+const wordplay = (strOne, strTwo) => {
+    let resultsArr = [];
+    for(let i = 0; i < strTwo.length; i ++){
+        let currentLetter = strTwo[i];
+        if(strOne.indexOf(currentLetter) === -1){
+            return false;
+        } 
+        resultsArr.push(strOne.indexOf(currentLetter));
     }
     
-    const isPrime = (posPrime) => {
-        if(posPrime === 2){
-            return true;
-        }
-        for(let i = 2; i < posPrime; i++){
-            if(posPrime % i === 0){
-                return false;
-            }
-            return true;
-        }
-    }
-
-   for(let i = 2; i <= num; i++){
-       if((isFact(i)) && (isPrime(i))){
-           console.log(i);
-           count++;
-       }
-   }
-    return count;
+    return resultsArr;
 }
 
-console.log(primes(12));
+console.log(wordplay('cartoon', 'lineograph'));
