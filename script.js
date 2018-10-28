@@ -464,15 +464,25 @@
 //
 //In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
 
-const is_square = (num) => {
-    for(let i = 0; i <= num; i++){
-        if(i * i === num){
-            return true;
-        }
+//const is_square = (num) => {
+//    for(let i = 0; i <= num; i++){
+//        if(i * i === num){
+//            return true;
+//        }
+//    }
+//    return false;
+//}
+//
+//console.log(is_square(1));
+
+//You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+function getMiddle(s)
+{
+    if(s.length % 2 !== 0){
+        return s[((s.length/2).toFixed(0))-1];
     }
-    return false;
+    return s[((s.length/2).toFixed(0))-1] + s[((s.length/2).toFixed(0))];
 }
 
-console.log(is_square(1));
-
-console.log(0*0);
+console.log(getMiddle('wioyiw'));
