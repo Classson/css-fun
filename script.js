@@ -499,19 +499,53 @@
 //
 //Your code must return true or false depending upon whether the given number is a Narcissistic number in base 10.
 
-function narcissistic( value ) {
-    let sum = 0;
-    let numStr = value.toString();
-    for(let i = 0; i < numStr.length; i++){
-        console.log(numStr[i]);
-        sum += Math.pow(numStr[i], numStr.length);
+//function narcissistic( value ) {
+//    let sum = 0;
+//    let numStr = value.toString();
+//    for(let i = 0; i < numStr.length; i++){
+//        console.log(numStr[i]);
+//        sum += Math.pow(numStr[i], numStr.length);
+//    }
+//    
+//    if(value === sum){
+//        return true;
+//    }
+//    return false;
+//}
+//
+//
+//console.log(narcissistic(153));
+
+//Write a method that, when given a number, returns the number of factors of that number (including the number itself) that are prime. You may wish to write two helper methods: prime?(n) and factors(n).
+
+const primes = (num) => {
+    let count = 0;
+    const isFact = (posFact) => {
+        if(num % posFact === 0){
+            return true;
+        }
+        return false;
     }
     
-    if(value === sum){
-        return true;
+    const isPrime = (posPrime) => {
+        if(posPrime === 2){
+            return true;
+        }
+        for(let i = 2; i < posPrime; i++){
+            if(posPrime % i === 0){
+                return false;
+            }
+            return true;
+        }
     }
-    return false;
+
+   for(let i = 2; i <= num; i++){
+       if((isFact(i)) && (isPrime(i))){
+           console.log(i);
+           count++;
+       }
+   }
+    return count;
 }
 
-
-console.log(narcissistic(153));
+console.log(primes(12));
