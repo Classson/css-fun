@@ -446,17 +446,33 @@
 
 //Write a function sing that returns the lyrics for the song 99 Bottles of Beer as a an array.
 
-var sing = function () {
-    let arr = [];
-    for(let i = 99; i > 2; i--){
-        arr.push(`${i} bottles of beer on the wall, ${i} bottles of beer.`);
-        arr.push(`Take one down and pass it around, ${i-1} bottles of beer on the wall.`);
+//var sing = function () {
+//    let arr = [];
+//    for(let i = 99; i > 2; i--){
+//        arr.push(`${i} bottles of beer on the wall, ${i} bottles of beer.`);
+//        arr.push(`Take one down and pass it around, ${i-1} bottles of beer on the wall.`);
+//    }
+//    arr.push(`2 bottles of beer on the wall, 2 bottles of beer.`, `Take one down and pass it around, 1 bottle of beer on the wall.`, `1 bottle of beer on the wall, 1 bottle of beer.`, `Take one down and pass it around, no more bottles of beer on the wall.`, `No more bottles of beer on the wall, no more bottles of beer.`, `Go to the store and buy some more, 99 bottles of beer on the wall.`);
+//    return arr;
+//};
+//
+//let song = sing();
+//
+//console.log(song[197]);
+
+//Given an integral number, determine if it's a square number:
+//
+//In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+
+const is_square = (num) => {
+    for(let i = 0; i <= num; i++){
+        if(i * i === num){
+            return true;
+        }
     }
-    arr.push(`2 bottles of beer on the wall, 2 bottles of beer.`, `Take one down and pass it around, 1 bottle of beer on the wall.`, `1 bottle of beer on the wall, 1 bottle of beer.`, `Take one down and pass it around, no more bottles of beer on the wall.`, `No more bottles of beer on the wall, no more bottles of beer.`, `Go to the store and buy some more, 99 bottles of beer on the wall.`);
-    return arr;
-};
+    return false;
+}
 
-let song = sing();
+console.log(is_square(1));
 
-console.log(song[197]);
-
+console.log(0*0);
