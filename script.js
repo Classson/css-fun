@@ -556,17 +556,36 @@
 //wordplay('shadowless', 'dashes') => [3, 2, 0, 1, 7, 0]
 //wordplay('cartoon', 'lineograph') => false
 
-const wordplay = (strOne, strTwo) => {
-    let resultsArr = [];
-    for(let i = 0; i < strTwo.length; i ++){
-        let currentLetter = strTwo[i];
-        if(strOne.indexOf(currentLetter) === -1){
-            return false;
-        } 
-        resultsArr.push(strOne.indexOf(currentLetter));
+//const wordplay = (strOne, strTwo) => {
+//    let resultsArr = [];
+//    for(let i = 0; i < strTwo.length; i ++){
+//        let currentLetter = strTwo[i];
+//        if(strOne.indexOf(currentLetter) === -1){
+//            return false;
+//        } 
+//        resultsArr.push(strOne.indexOf(currentLetter));
+//    }
+//    
+//    return resultsArr;
+//}
+//
+//console.log(wordplay('cartoon', 'lineograph'));
+
+//Given a string, remove every vowel if its index is odd.
+
+const noOddVowels = (str) => {
+    let newStr = '';
+    let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    for(let i = 0; i < str.length; i++){
+        if(i % 2 === 0){
+            newStr += str[i];
+        } else {
+            if(vowels.indexOf(str[i]) === -1){
+                newStr += str[i];
+            }
+        }
     }
-    
-    return resultsArr;
+    return newStr;
 }
 
-console.log(wordplay('cartoon', 'lineograph'));
+console.log(noOddVowels("AICOPee")); // => ACPe
