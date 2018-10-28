@@ -433,13 +433,30 @@
 //
 //These methods must be the only available means of interacting with the object.
 
-var Person = function(firstAndLast) {
-  // Complete the method below and implement the others similarly
-  this.getFullName = function() {
-    return "";
-  };
-  return firstAndLast;
+//var Person = function(firstAndLast) {
+//  // Complete the method below and implement the others similarly
+//  this.getFullName = function() {
+//    return "";
+//  };
+//  return firstAndLast;
+//};
+//
+//var bob = new Person('Bob Ross');
+//bob.getFullName();
+
+//Write a function sing that returns the lyrics for the song 99 Bottles of Beer as a an array.
+
+var sing = function () {
+    let arr = [];
+    for(let i = 99; i > 2; i--){
+        arr.push(`${i} bottles of beer on the wall, ${i} bottles of beer.`);
+        arr.push(`Take one down and pass it around, ${i-1} bottles of beer on the wall.`);
+    }
+    arr.push(`2 bottles of beer on the wall, 2 bottles of beer.`, `Take one down and pass it around, 1 bottle of beer on the wall.`, `1 bottle of beer on the wall, 1 bottle of beer.`, `Take one down and pass it around, no more bottles of beer on the wall.`, `No more bottles of beer on the wall, no more bottles of beer.`, `Go to the store and buy some more, 99 bottles of beer on the wall.`);
+    return arr;
 };
 
-var bob = new Person('Bob Ross');
-bob.getFullName();
+let song = sing();
+
+console.log(song[197]);
+
