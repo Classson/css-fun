@@ -477,12 +477,41 @@
 
 //You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
 
-function getMiddle(s)
-{
-    if(s.length % 2 !== 0){
-        return s[((s.length/2).toFixed(0))-1];
+//function getMiddle(s)
+//{
+//    if(s.length % 2 !== 0){
+//        return s[((s.length/2).toFixed(0))-1];
+//    }
+//    return s[((s.length/2).toFixed(0))-1] + s[((s.length/2).toFixed(0))];
+//}
+//
+//console.log(getMiddle('wioyiw'));
+
+//A Narcissistic Number is a number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+//
+//For example, take 153 (3 digits):
+//
+//    1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+//and 1634 (4 digits):
+//
+//    1^4 + 6^4 + 3^4 + 4^4 = 1 + 1296 + 81 + 256 = 1634
+//The Challenge:
+//
+//Your code must return true or false depending upon whether the given number is a Narcissistic number in base 10.
+
+function narcissistic( value ) {
+    let sum = 0;
+    let numStr = value.toString();
+    for(let i = 0; i < numStr.length; i++){
+        console.log(numStr[i]);
+        sum += Math.pow(numStr[i], numStr.length);
     }
-    return s[((s.length/2).toFixed(0))-1] + s[((s.length/2).toFixed(0))];
+    
+    if(value === sum){
+        return true;
+    }
+    return false;
 }
 
-console.log(getMiddle('wioyiw'));
+
+console.log(narcissistic(153));
