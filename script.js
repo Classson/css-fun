@@ -592,14 +592,80 @@
 //
 //Write the method golfScoreCalculator/GolfScoreCalculator which accepts two strings and calculates the golf score of a game. The two arguments can always be assumed to be strings. In Javascript, the length of these two strings will always match.
 
-function golfScoreCalculator(parList, scoreList){
-    let score = 0;
-    for(let i = 0; i < parList.length; i++){
-        score += scoreList[i] - parList[i];
+//function golfScoreCalculator(parList, scoreList){
+//    let score = 0;
+//    for(let i = 0; i < parList.length; i++){
+//        score += scoreList[i] - parList[i];
+//    }
+//    return score;
+//}
+
+//console.log(golfScoreCalculator("453454444344544443", "354445334534445344"));
+
+
+//Write a program that finds the summation of every number between 1 and num. The number will always be a positive integer greater than 0.
+
+//var summation = function (num) {
+//    let sum = 0;
+//    for(let i = 1; i <= num; i++){
+//        sum += i;
+//    }
+//    return sum;
+//}
+//
+//console.log(summation(8));
+
+
+//Write a function called repeatStr which repeats the given string string exactly n times.
+
+
+//function repeatStr (n, s) {
+//    let str = '';
+//    for(let i = 0; i <= n; i++){
+//        str += s;
+//    }
+//    
+//    return str;
+//}
+
+//A child is playing with a ball on the nth floor of a tall building. The height of this floor, h, is known.
+//
+//He drops the ball out of the window. The ball bounces (for example), to two-thirds of its height (a bounce of 0.66).
+//
+//His mother looks out of a window 1.5 meters from the ground.
+//
+//How many times will the mother see the ball pass in front of her window (including when it's falling and bouncing?
+//
+//Three conditions must be met for a valid experiment:
+//Float parameter "h" in meters must be greater than 0
+//Float parameter "bounce" must be greater than 0 and less than 1
+//Float parameter "window" must be less than h.
+//If all three conditions above are fulfilled, return a positive integer, otherwise return -1.
+//
+//Note: The ball can only be seen if the height of the rebounding ball is stricty greater than the window parameter.
+                                                                         
+function bouncingBall(h,  bounce,  window) {
+    let ballAlt = h;
+    let count = 0;
+    if(h <= 0 || bounce >= 1 || bounce <= 0 || window > h){
+      return '-1';
     }
-    return score;
+    
+    for(let i = 0; ballAlt > window; i++){
+        if(ballAlt > window){
+            count++;
+        }
+        ballAlt = h * bounce;
+        h = ballAlt;
+        console.log(h);
+        if(ballAlt > window){
+            count++;
+        }
+    }
+    if(count === 0){
+        return -1
+    }
+    return count;
 }
 
-
-
-console.log(golfScoreCalculator("453454444344544443", "354445334534445344"));
+console.log(bouncingBall(3, 0.66, 1.5));
