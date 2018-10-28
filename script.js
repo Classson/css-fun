@@ -572,20 +572,34 @@
 //console.log(wordplay('cartoon', 'lineograph'));
 
 //Given a string, remove every vowel if its index is odd.
+//
+//const noOddVowels = (str) => {
+//    let newStr = '';
+//    let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+//    for(let i = 0; i < str.length; i++){
+//        if(i % 2 === 0){
+//            newStr += str[i];
+//        } else {
+//            if(vowels.indexOf(str[i]) === -1){
+//                newStr += str[i];
+//            }
+//        }
+//    }
+//    return newStr;
+//}
+//
+//console.log(noOddVowels("AICOPee")); // => ACPe
+//
+//Write the method golfScoreCalculator/GolfScoreCalculator which accepts two strings and calculates the golf score of a game. The two arguments can always be assumed to be strings. In Javascript, the length of these two strings will always match.
 
-const noOddVowels = (str) => {
-    let newStr = '';
-    let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-    for(let i = 0; i < str.length; i++){
-        if(i % 2 === 0){
-            newStr += str[i];
-        } else {
-            if(vowels.indexOf(str[i]) === -1){
-                newStr += str[i];
-            }
-        }
+function golfScoreCalculator(parList, scoreList){
+    let score = 0;
+    for(let i = 0; i < parList.length; i++){
+        score += scoreList[i] - parList[i];
     }
-    return newStr;
+    return score;
 }
 
-console.log(noOddVowels("AICOPee")); // => ACPe
+
+
+console.log(golfScoreCalculator("453454444344544443", "354445334534445344"));
