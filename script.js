@@ -780,13 +780,30 @@
 //The string has a length greater or equal to one and contains only letters from ato z.
 //
 //
-function printerError(s) {
-    let correct = 'abcdefghijklm';
-    let errors = 0;
-    for(let i = 0; i < s.length; i++){
-        if(correct.indexOf(s[i]) === -1){
-            errors++;
-        }
+//function printerError(s) {
+//    let correct = 'abcdefghijklm';
+//    let errors = 0;
+//    for(let i = 0; i < s.length; i++){
+//        if(correct.indexOf(s[i]) === -1){
+//            errors++;
+//        }
+//    }
+//    return `${errors}/${s.length}`
+//}
+
+function comp(array1, array2){
+  if(!array1 || !array2){
+  return false}
+  if(array1.length !== array2.length){
+    return false;
+  }
+  array1.sort((a,b) => a-b);
+  array2.sort((a,b) => a-b);
+  for(let i = 0; i < array1.length; i++){
+      let squared = array1[i] * array1[i];
+      if(squared !== array2[i]){
+        return false;
+      }
     }
-    return `${errors}/${s.length}`
+    return true;
 }
