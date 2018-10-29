@@ -812,12 +812,41 @@
 //
 //Your task is to return number of people who are still in the bus after the last bus station (after the last array). Even though it is the last bus stop, the bus is not empty and some people are still in the bus, and they are probably sleeping there :D
 
-var number = function(busStops){
-    let count = 0;
-    for(let i = 0; i < busStops.length; i++){
-        count += busStops[i][0];
-        count -= busStops[i][1];
+//var number = function(busStops){
+//    let count = 0;
+//    for(let i = 0; i < busStops.length; i++){
+//        count += busStops[i][0];
+//        count -= busStops[i][1];
+//    }
+//    
+//    return count;
+//}
+
+//You have an array of numbers.
+//Your task is to sort ascending odd numbers but even numbers must be on their places.
+//
+//Zero isn't an odd number and you don't need to move it. If you have an empty array, you need to return it.
+
+function sortArray(array) {
+    let placeHolderArr = [];
+    let oddsArr = [];
+    for(let i = 0; i < array.length; i++){
+        if(array[i] % 2 === 0){
+            placeHolderArr.push(array[i]);
+        } else {
+            placeHolderArr.push("p");
+            oddsArr.push(array[i]);
+        }
     }
-    
-    return count;
+    oddsArr.sort((a,b) => a-b);
+    for(let i = 0; i < placeHolderArr.length; i++){
+        if(placeHolderArr[i] === 'p'){
+            placeHolderArr[i] = oddsArr[0];
+            oddsArr.shift();
+        }
+    }
+    return placeHolderArr;
 }
+
+console.log(sortArray([]));
+
