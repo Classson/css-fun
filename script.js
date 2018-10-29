@@ -696,16 +696,76 @@
 
 //Given a series of numbers as a string, determine if the number represented by the string is divisible by three.
 
-function divisibleByThree(str){
-    let numsArr = str.split('');
-    let sum = 0;
-    for(let i = 0; i < numsArr.length; i++){
-      sum += parseInt(numsArr[i]);
+//function divisibleByThree(str){
+//    let numsArr = str.split('');
+//    let sum = 0;
+//    for(let i = 0; i < numsArr.length; i++){
+//      sum += parseInt(numsArr[i]);
+//    }
+//    if (sum % 3 === 0){
+//        return true;
+//    }
+//    return false;
+//}
+//
+//console.log(divisibleByThree('123'));
+
+//There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+//
+//The function has two input variables:
+//
+//customers: an array (list in python) of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+//n: a positive integer, the number of checkout tills.
+
+//function queueTime(customers, n) {
+//    if(customers.length === 0){
+//        return 0;
+//    }
+//    if(n > customers.length){
+//        customers.sort((a,b) => a+b)
+//        return customers[0];
+//    }
+//    let total = 0;
+//    let currentTotal = 0;
+//    for(let i = 0; i < customers.length; i+=n){
+//        currentTotal += customers[i];
+//        console.log(i + " is i");
+//        console.log(currentTotal + ' is currentTotal');
+//        if(currentTotal > total){
+//            total = currentTotal;
+//        }
+//    }
+//    return total;
+//}
+//
+//let result = queueTime([1,2,3,4,5], 2);
+//console.log(result);
+
+
+//Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+
+function persistence(num) {
+    let strNum = num.toString();
+    let count = 0;
+    //let sum = 0;
+    if (strNum.length === 1){
+        return count;
     }
-    if (sum % 3 === 0){
-        return true;
+    count++;
+    let numArr = num.toString().split('');
+    let sum = numArr[0];
+    for(let i = 1; i < numArr.length; i++){
+        sum *= parseInt(numArr[i]);
     }
-    return false;
+    console.log(sum);
+    if(sum.toString().length === 1){
+        return count;   
+    }
+    if(sum.toString().length > 1){
+        return count += persistence(sum);
+    }
+    
 }
 
-console.log(divisibleByThree('123'));
+
+console.log(persistence(999));
