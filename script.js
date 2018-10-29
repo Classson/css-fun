@@ -644,28 +644,43 @@
 //
 //Note: The ball can only be seen if the height of the rebounding ball is stricty greater than the window parameter.
                                                                          
-function bouncingBall(h,  bounce,  window) {
-    let ballAlt = h;
-    let count = 0;
-    if(h <= 0 || bounce >= 1 || bounce <= 0 || window > h){
-      return '-1';
+//function bouncingBall(h,  bounce,  window) {
+//    let ballAlt = h;
+//    let count = 0;
+//    if(h <= 0 || bounce >= 1 || bounce <= 0 || window > h){
+//      return '-1';
+//    }
+//    
+//    for(let i = 0; ballAlt > window; i++){
+//        if(ballAlt > window){
+//            count++;
+//        }
+//        ballAlt = h * bounce;
+//        h = ballAlt;
+//        console.log(h);
+//        if(ballAlt > window){
+//            count++;
+//        }
+//    }
+//    if(count === 0){
+//        return -1
+//    }
+//    return count;
+//}
+//
+//console.log(bouncingBall(3, 0.66, 1.5));
+
+//In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new inhabitants per year come to live in the town. How many years does the town need to see its population greater or equal to p = 1200 inhabitants?
+
+function nbYear(p0, percent, aug, p) {
+    let year = 0;
+    let pop = p0;
+    for(let i = 0; pop < p; i++){
+        year++;
+        pop += pop * (percent * 0.01);
+        pop += aug;
     }
-    
-    for(let i = 0; ballAlt > window; i++){
-        if(ballAlt > window){
-            count++;
-        }
-        ballAlt = h * bounce;
-        h = ballAlt;
-        console.log(h);
-        if(ballAlt > window){
-            count++;
-        }
-    }
-    if(count === 0){
-        return -1
-    }
-    return count;
+    return year;
 }
 
-console.log(bouncingBall(3, 0.66, 1.5));
+console.log(nbYear(1500, 5, 100, 5000));
