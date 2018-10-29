@@ -744,28 +744,49 @@
 
 //Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
 
-function persistence(num) {
-    let strNum = num.toString();
-    let count = 0;
-    //let sum = 0;
-    if (strNum.length === 1){
-        return count;
+//function persistence(num) {
+//    let strNum = num.toString();
+//    let count = 0;
+//    if (strNum.length === 1){
+//        return count;
+//    }
+//    count++;
+//    let numArr = num.toString().split('');
+//    let sum = numArr[0];
+//    for(let i = 1; i < numArr.length; i++){
+//        sum *= parseInt(numArr[i]);
+//    }
+//    console.log(sum);
+//    if(sum.toString().length === 1){
+//        return count;   
+//    }
+//    if(sum.toString().length > 1){
+//        return count += persistence(sum);
+//    }
+//    
+//}
+//
+//
+//console.log(persistence(999));
+
+//In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+//
+//The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+//
+//Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm.
+//
+//You have to write a function printer_error which given a string will output the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+//
+//The string has a length greater or equal to one and contains only letters from ato z.
+//
+//
+function printerError(s) {
+    let correct = 'abcdefghijklm';
+    let errors = 0;
+    for(let i = 0; i < s.length; i++){
+        if(correct.indexOf(s[i]) === -1){
+            errors++;
+        }
     }
-    count++;
-    let numArr = num.toString().split('');
-    let sum = numArr[0];
-    for(let i = 1; i < numArr.length; i++){
-        sum *= parseInt(numArr[i]);
-    }
-    console.log(sum);
-    if(sum.toString().length === 1){
-        return count;   
-    }
-    if(sum.toString().length > 1){
-        return count += persistence(sum);
-    }
-    
+    return `${errors}/${s.length}`
 }
-
-
-console.log(persistence(999));
