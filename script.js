@@ -672,15 +672,24 @@
 
 //In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new inhabitants per year come to live in the town. How many years does the town need to see its population greater or equal to p = 1200 inhabitants?
 
-function nbYear(p0, percent, aug, p) {
-    let year = 0;
-    let pop = p0;
-    for(let i = 0; pop < p; i++){
-        year++;
-        pop += pop * (percent * 0.01);
-        pop += aug;
-    }
-    return year;
-}
+//function nbYear(p0, percent, aug, p) {
+//    let year = 0;
+//    let pop = p0;
+//    for(let i = 0; pop < p; i++){
+//        year++;
+//        pop += pop * (percent * 0.01);
+//        pop += aug;
+//    }
+//    return year;
+//}
+//
+//console.log(nbYear(1500, 5, 100, 5000));
 
-console.log(nbYear(1500, 5, 100, 5000));
+//Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 integers. No floats or empty arrays will be passed.
+
+function sumTwoSmallestNumbers(numbers) {  
+    numbers.sort((a,b) => a-b);
+    return numbers[0] + numbers[1];
+};
+
+console.log(sumTwoSmallestNumbers([10, 343445353, 3453445, 3453545353453]));
