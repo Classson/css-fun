@@ -687,9 +687,25 @@
 
 //Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 integers. No floats or empty arrays will be passed.
 
-function sumTwoSmallestNumbers(numbers) {  
-    numbers.sort((a,b) => a-b);
-    return numbers[0] + numbers[1];
-};
+//function sumTwoSmallestNumbers(numbers) {  
+//    numbers.sort((a,b) => a-b);
+//    return numbers[0] + numbers[1];
+//};
+//
+//console.log(sumTwoSmallestNumbers([10, 343445353, 3453445, 3453545353453]));
 
-console.log(sumTwoSmallestNumbers([10, 343445353, 3453445, 3453545353453]));
+//Given a series of numbers as a string, determine if the number represented by the string is divisible by three.
+
+function divisibleByThree(str){
+    let numsArr = str.split('');
+    let sum = 0;
+    for(let i = 0; i < numsArr.length; i++){
+      sum += parseInt(numsArr[i]);
+    }
+    if (sum % 3 === 0){
+        return true;
+    }
+    return false;
+}
+
+console.log(divisibleByThree('123'));
