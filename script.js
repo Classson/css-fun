@@ -827,26 +827,49 @@
 //
 //Zero isn't an odd number and you don't need to move it. If you have an empty array, you need to return it.
 
-function sortArray(array) {
-    let placeHolderArr = [];
-    let oddsArr = [];
-    for(let i = 0; i < array.length; i++){
-        if(array[i] % 2 === 0){
-            placeHolderArr.push(array[i]);
+//function sortArray(array) {
+//    let placeHolderArr = [];
+//    let oddsArr = [];
+//    for(let i = 0; i < array.length; i++){
+//        if(array[i] % 2 === 0){
+//            placeHolderArr.push(array[i]);
+//        } else {
+//            placeHolderArr.push("p");
+//            oddsArr.push(array[i]);
+//        }
+//    }
+//    oddsArr.sort((a,b) => a-b);
+//    for(let i = 0; i < placeHolderArr.length; i++){
+//        if(placeHolderArr[i] === 'p'){
+//            placeHolderArr[i] = oddsArr[0];
+//            oddsArr.shift();
+//        }
+//    }
+//    return placeHolderArr;
+//}
+//
+//console.log(sortArray([]));
+
+//Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+function duplicateCount(text){
+    let lowerStr = text.toLowerCase();
+    let letterObj = {};
+    let count = 0;
+    for(let i = 0; i < lowerStr.length; i++){
+        if(!letterObj[lowerStr[i]]){
+            letterObj[lowerStr[i]] = 1;
         } else {
-            placeHolderArr.push("p");
-            oddsArr.push(array[i]);
+            letterObj[lowerStr[i]]++;
         }
     }
-    oddsArr.sort((a,b) => a-b);
-    for(let i = 0; i < placeHolderArr.length; i++){
-        if(placeHolderArr[i] === 'p'){
-            placeHolderArr[i] = oddsArr[0];
-            oddsArr.shift();
+    for(letter in letterObj){
+        if(letterObj[letter] > 1){
+            count++;
         }
     }
-    return placeHolderArr;
+
+    return count;
 }
 
-console.log(sortArray([]));
-
+console.log(duplicateCount("aabbcde"));
