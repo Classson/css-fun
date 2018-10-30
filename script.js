@@ -876,26 +876,51 @@
 
 //You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block in a direction and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
 
-function isValidWalk(walk) {
-  if(walk.length !== 10){
-      return false;
-  }
-    let location = 0;
-    for(let i = 0; i < walk.length; i++){
-        switch(walk[i]){
-            case "n" : location ++;
-                break;
-            case "s" : location --;
-                break;
-            case "e" : location ++;
-                break;
-            case "w" : location --;
+//function isValidWalk(walk) {
+//  if(walk.length !== 10){
+//      return false;
+//  }
+//    let location = 0;
+//    for(let i = 0; i < walk.length; i++){
+//        switch(walk[i]){
+//            case "n" : location ++;
+//                break;
+//            case "s" : location --;
+//                break;
+//            case "e" : location ++;
+//                break;
+//            case "w" : location --;
+//        }
+//    }
+//    if(location === 0){
+//        return true;
+//    }
+//    return false;
+//}
+//
+//console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s', 'e']));
+
+//The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
+
+var maxSequence = function(arr){
+    let max = 0;
+    for(let i = 0; i < arr.length; i++){
+        let count = -1;
+        for(let j = i; j < arr.length; j++){
+            count++;
+            let sum = 0;
+            for(let k = i; k < arr.length-count; k++){
+                sum += arr[k];
+            }
+            if(sum > max){
+                max = sum;
+            }
         }
     }
-    if(location === 0){
-        return true;
+    if(max < 0 || (!max)){
+        max = 0;
     }
-    return false;
+    return max;
 }
 
-console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s', 'e']));
+console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
