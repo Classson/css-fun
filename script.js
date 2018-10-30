@@ -925,21 +925,44 @@
 //
 //console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
 
-function tribonacci(signature,n){
-    let arr = signature;
-    if(n === 0){
-       return [];
-    }
-    for(let i = 0; i < n-3; i++){
-        arr.push(arr[i] + arr[i+1] + arr[i+2]);
-    }
-    if(n === 1){
-        return [arr[0]];
-    }
-    if(n === 2){
-        return [arr[0], arr[1]];
-    }
-    return arr;
-}
+//function tribonacci(signature,n){
+//    let arr = signature;
+//    if(n === 0){
+//       return [];
+//    }
+//    for(let i = 0; i < n-3; i++){
+//        arr.push(arr[i] + arr[i+1] + arr[i+2]);
+//    }
+//    if(n === 1){
+//        return [arr[0]];
+//    }
+//    if(n === 2){
+//        return [arr[0], arr[1]];
+//    }
+//    return arr;
+//}
+//
+//console.log(tribonacci([1,1,1],1));
 
-console.log(tribonacci([1,1,1],1));
+//Your task is to make function, which returns the sum of a sequence of integers.
+//
+//The sequence is defined by 3 non-negative values: begin, end, step.
+//
+//If begin value is greater than the end, function should returns 0
+//
+//Examples
+//
+//sequenceSum(2,2,2) === 2
+//sequenceSum(2,6,2) === 12 // 2 + 4 + 6
+//sequenceSum(1,5,1) === 15 // 1 + 2 + 3 + 4 + 5
+//sequenceSum(1,5,3) === 5 // 1 + 4
+
+const sequenceSum = (begin, end, step) => {
+    let sum = 0;
+    for(let i = begin; i <= end; i+=step){
+        sum += i;
+    }
+    return sum;
+};
+
+console.log(sequenceSum(10,5,1));
