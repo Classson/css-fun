@@ -902,25 +902,44 @@
 
 //The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
 
-var maxSequence = function(arr){
-    let max = 0;
-    for(let i = 0; i < arr.length; i++){
-        let count = -1;
-        for(let j = i; j < arr.length; j++){
-            count++;
-            let sum = 0;
-            for(let k = i; k < arr.length-count; k++){
-                sum += arr[k];
-            }
-            if(sum > max){
-                max = sum;
-            }
-        }
+//var maxSequence = function(arr){
+//    let max = 0;
+//    for(let i = 0; i < arr.length; i++){
+//        let count = -1;
+//        for(let j = i; j < arr.length; j++){
+//            count++;
+//            let sum = 0;
+//            for(let k = i; k < arr.length-count; k++){
+//                sum += arr[k];
+//            }
+//            if(sum > max){
+//                max = sum;
+//            }
+//        }
+//    }
+//    if(max < 0 || (!max)){
+//        max = 0;
+//    }
+//    return max;
+//}
+//
+//console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+function tribonacci(signature,n){
+    let arr = signature;
+    if(n === 0){
+       return [];
     }
-    if(max < 0 || (!max)){
-        max = 0;
+    for(let i = 0; i < n-3; i++){
+        arr.push(arr[i] + arr[i+1] + arr[i+2]);
     }
-    return max;
+    if(n === 1){
+        return [arr[0]];
+    }
+    if(n === 2){
+        return [arr[0], arr[1]];
+    }
+    return arr;
 }
 
-console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+console.log(tribonacci([1,1,1],1));
