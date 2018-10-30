@@ -852,24 +852,50 @@
 
 //Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
 
-function duplicateCount(text){
-    let lowerStr = text.toLowerCase();
-    let letterObj = {};
-    let count = 0;
-    for(let i = 0; i < lowerStr.length; i++){
-        if(!letterObj[lowerStr[i]]){
-            letterObj[lowerStr[i]] = 1;
-        } else {
-            letterObj[lowerStr[i]]++;
-        }
-    }
-    for(letter in letterObj){
-        if(letterObj[letter] > 1){
-            count++;
-        }
-    }
+//function duplicateCount(text){
+//    let lowerStr = text.toLowerCase();
+//    let letterObj = {};
+//    let count = 0;
+//    for(let i = 0; i < lowerStr.length; i++){
+//        if(!letterObj[lowerStr[i]]){
+//            letterObj[lowerStr[i]] = 1;
+//        } else {
+//            letterObj[lowerStr[i]]++;
+//        }
+//    }
+//    for(letter in letterObj){
+//        if(letterObj[letter] > 1){
+//            count++;
+//        }
+//    }
+//
+//    return count;
+//}
+//
+//console.log(duplicateCount("aabbcde"));
 
-    return count;
+//You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block in a direction and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+
+function isValidWalk(walk) {
+  if(walk.length !== 10){
+      return false;
+  }
+    let location = 0;
+    for(let i = 0; i < walk.length; i++){
+        switch(walk[i]){
+            case "n" : location ++;
+                break;
+            case "s" : location --;
+                break;
+            case "e" : location ++;
+                break;
+            case "w" : location --;
+        }
+    }
+    if(location === 0){
+        return true;
+    }
+    return false;
 }
 
-console.log(duplicateCount("aabbcde"));
+console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s', 'e']));
