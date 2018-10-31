@@ -973,20 +973,68 @@
 //likes ["Max", "John", "Mark"] // must be "Max, John and Mark like this"
 //likes ["Alex", "Jacob", "Mark", "Max"] // must be "Alex, Jacob and 2 others like this"
 
-function likes(names) {
-    if(names.length < 1){
-        return "no one likes this";
+//function likes(names) {
+//    if(names.length < 1){
+//        return "no one likes this";
+//    }
+//    if(names.length === 1){
+//        return `${names[0]} likes this`;
+//    }
+//    if(names.length === 2){
+//        return `${names[0]} and ${names[1]} like this`
+//    }
+//    if(names.length === 3){
+//        return `${names[0]}, ${names[1]} and ${names[2]} like this`
+//    }
+//    if(names.length > 3){
+//        return `${names[0]}, ${names[1]} and ${names.length -2} others like this`
+//    }
+//}
+
+function to_nato(words) {
+    let newStr = '';
+	let NATOdict = {
+  "A":"Alfa",
+  "B"	: "Bravo",
+  "C"	: "Charlie",
+  "D"	: "Delta",
+  "E"	: "Echo",
+  "F"	: "Foxtrot",
+  "G"	: "Golf",
+  "H"	: "Hotel",
+  "I"	: "India",
+  "J"	: "Juliett",
+  "K"	: "Kilo",
+  "L"	: "Lima",
+  "M"	: "Mike",
+  "N"	: "November",
+  "O"	: "Oscar",
+  "P"	: "Papa",
+  "Q"	: "Quebec",
+  "R"	: "Romeo",
+  "S"	: "Sierra",
+  "T"	: "Tango",
+  "U"	: "Uniform",
+  "V"	: "Victor",
+  "W"	: "Whiskey",
+  "X"	: "Xray",
+  "Y"	: "Yankee",
+  "Z"	: "Zulu",
+  "-"	: "Dash"
+  }
+   let upperWords = words.toUpperCase().replace(/ /g, '');
+    console.log(upperWords);
+    for(let i = 0; i < upperWords.length; i++){
+        if(NATOdict[upperWords[i]]){
+        newStr+= `${NATOdict[upperWords[i]]} `;}
+        else {
+            newStr+= `${upperWords[i]} `;
+        }
     }
-    if(names.length === 1){
-        return `${names[0]} likes this`;
+    if(newStr[newStr.length-1] === " "){
+        newStr = newStr.slice(0, -1);
     }
-    if(names.length === 2){
-        return `${names[0]} and ${names[1]} like this`
-    }
-    if(names.length === 3){
-        return `${names[0]}, ${names[1]} and ${names[2]} like this`
-    }
-    if(names.length > 3){
-        return `${names[0]}, ${names[1]} and ${names.length -2} others like this`
-    }
+    return newStr;
 }
+
+console.log(to_nato("If you can, read"));
