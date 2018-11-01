@@ -991,50 +991,81 @@
 //    }
 //}
 
-function to_nato(words) {
+//function to_nato(words) {
+//    let newStr = '';
+//	let NATOdict = {
+//  "A":"Alfa",
+//  "B"	: "Bravo",
+//  "C"	: "Charlie",
+//  "D"	: "Delta",
+//  "E"	: "Echo",
+//  "F"	: "Foxtrot",
+//  "G"	: "Golf",
+//  "H"	: "Hotel",
+//  "I"	: "India",
+//  "J"	: "Juliett",
+//  "K"	: "Kilo",
+//  "L"	: "Lima",
+//  "M"	: "Mike",
+//  "N"	: "November",
+//  "O"	: "Oscar",
+//  "P"	: "Papa",
+//  "Q"	: "Quebec",
+//  "R"	: "Romeo",
+//  "S"	: "Sierra",
+//  "T"	: "Tango",
+//  "U"	: "Uniform",
+//  "V"	: "Victor",
+//  "W"	: "Whiskey",
+//  "X"	: "Xray",
+//  "Y"	: "Yankee",
+//  "Z"	: "Zulu",
+//  "-"	: "Dash"
+//  }
+//   let upperWords = words.toUpperCase().replace(/ /g, '');
+//    console.log(upperWords);
+//    for(let i = 0; i < upperWords.length; i++){
+//        if(NATOdict[upperWords[i]]){
+//        newStr+= `${NATOdict[upperWords[i]]} `;}
+//        else {
+//            newStr+= `${upperWords[i]} `;
+//        }
+//    }
+//    if(newStr[newStr.length-1] === " "){
+//        newStr = newStr.slice(0, -1);
+//    }
+//    return newStr;
+//}
+//
+//console.log(to_nato("If you can, read"));
+
+//ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet. ROT13 is an example of the Caesar cipher.
+//
+//Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
+
+function rot13(message){
     let newStr = '';
-	let NATOdict = {
-  "A":"Alfa",
-  "B"	: "Bravo",
-  "C"	: "Charlie",
-  "D"	: "Delta",
-  "E"	: "Echo",
-  "F"	: "Foxtrot",
-  "G"	: "Golf",
-  "H"	: "Hotel",
-  "I"	: "India",
-  "J"	: "Juliett",
-  "K"	: "Kilo",
-  "L"	: "Lima",
-  "M"	: "Mike",
-  "N"	: "November",
-  "O"	: "Oscar",
-  "P"	: "Papa",
-  "Q"	: "Quebec",
-  "R"	: "Romeo",
-  "S"	: "Sierra",
-  "T"	: "Tango",
-  "U"	: "Uniform",
-  "V"	: "Victor",
-  "W"	: "Whiskey",
-  "X"	: "Xray",
-  "Y"	: "Yankee",
-  "Z"	: "Zulu",
-  "-"	: "Dash"
-  }
-   let upperWords = words.toUpperCase().replace(/ /g, '');
-    console.log(upperWords);
-    for(let i = 0; i < upperWords.length; i++){
-        if(NATOdict[upperWords[i]]){
-        newStr+= `${NATOdict[upperWords[i]]} `;}
-        else {
-            newStr+= `${upperWords[i]} `;
+    lowerMsg = message.toLowerCase();
+    let alpha = "abcdefghijklmnopqrstuvwxyz";
+    for(let i = 0; i < message.length; i++){
+        let num = null;
+        if(alpha.indexOf(lowerMsg[i]) === -1){
+            newStr += lowerMsg[i];
+        } else {
+        let num = alpha.indexOf(lowerMsg[i]) + 13;
+            console.log(num);
+        if(num > 25){
+            num = num-26;
         }
-    }
-    if(newStr[newStr.length-1] === " "){
-        newStr = newStr.slice(0, -1);
+        let newChar = alpha[num];
+        if(message[i].toUpperCase() === message[i]){
+            newStr += newChar.toUpperCase();
+        } else {
+        newStr += newChar;
+        }
+        }
     }
     return newStr;
 }
 
-console.log(to_nato("If you can, read"));
+console.log(rot13("tEst"));
