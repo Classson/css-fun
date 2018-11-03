@@ -1043,29 +1043,86 @@
 //
 //Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
 
-function rot13(message){
-    let newStr = '';
-    lowerMsg = message.toLowerCase();
-    let alpha = "abcdefghijklmnopqrstuvwxyz";
-    for(let i = 0; i < message.length; i++){
-        let num = null;
-        if(alpha.indexOf(lowerMsg[i]) === -1){
-            newStr += lowerMsg[i];
-        } else {
-        let num = alpha.indexOf(lowerMsg[i]) + 13;
-            console.log(num);
-        if(num > 25){
-            num = num-26;
-        }
-        let newChar = alpha[num];
-        if(message[i].toUpperCase() === message[i]){
-            newStr += newChar.toUpperCase();
-        } else {
-        newStr += newChar;
-        }
-        }
+//function rot13(message){
+//    let newStr = '';
+//    lowerMsg = message.toLowerCase();
+//    let alpha = "abcdefghijklmnopqrstuvwxyz";
+//    for(let i = 0; i < message.length; i++){
+//        let num = null;
+//        if(alpha.indexOf(lowerMsg[i]) === -1){
+//            newStr += lowerMsg[i];
+//        } else {
+//        let num = alpha.indexOf(lowerMsg[i]) + 13;
+//            console.log(num);
+//        if(num > 25){
+//            num = num-26;
+//        }
+//        let newChar = alpha[num];
+//        if(message[i].toUpperCase() === message[i]){
+//            newStr += newChar.toUpperCase();
+//        } else {
+//        newStr += newChar;
+//        }
+//        }
+//    }
+//    return newStr;
+//}
+//
+//console.log(rot13("tEst"));
+
+//Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+//
+//Rules for a smiling face:
+//-Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+//-A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+//-Every smiling face must have a smiling mouth that should be marked with either ) or D.
+//No additional characters are allowed except for those mentioned.
+//Valid smiley face examples:
+//:) :D ;-D :~)
+//Invalid smiley faces:
+//;( :> :} :] 
+
+
+
+const isSmile = (smile) => {
+    let eyes = false;
+    let mouth = false;
+    let nose = false;
+    
+    if(smile.length > 3){
+        return false;
     }
-    return newStr;
+    if(smile.length < 2){
+        return false;
+    }
+    if(smile[0] === ":" || smile[0] === ";"){
+        eyes = true;
+    }
+    if(smile[smile.length-1] === ")" || smile[smile.length-1] === "D"){
+        mouth = true;
+    }
+    if(smile.length == 2){
+        nose = true;
+    }
+    if(smile[1] === "-" || smile[1] === "~"){
+        nose = true;
+    }
+    
+    if(eyes === false || mouth === false || nose === false){
+        return false;
+    }
+    return true;
 }
 
-console.log(rot13("tEst"));
+const countSmileys = (arr) => {
+    let count = 0;
+    for(let i = 0; i < arr.length; i++){
+        let currentSmile = arr[i];
+        if (isSmile(currentSmile)){
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(countSmileys([':)',':(',':D',':O',':;']));
