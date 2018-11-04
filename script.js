@@ -1314,10 +1314,19 @@ var watchList = [
 //
 //console.log(filteredList);
 
-let nolanMovies = watchList.filter(x => x.Director === "Christopher Nolan")
+//let nolanMovies = watchList.filter(x => x.Director === "Christopher Nolan")
+//
+//let nolanRatings = nolanMovies.map(x => Number(x.imdbRating));
+//
+//let average = nolanRatings.reduce((acc, x)=> acc + x) / nolanRatings.length;
+//
+//console.log(average);
 
-let nolanRatings = nolanMovies.map(x => Number(x.imdbRating));
+function alphabeticalOrder(arr) {
+  // Add your code below this line
+  return arr.sort((a,b) => a > b);
+  
+  // Add your code above this line
+}
 
-let average = nolanRatings.reduce((acc, x)=> acc + x) / nolanRatings.length;
-
-console.log(average);
+console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
