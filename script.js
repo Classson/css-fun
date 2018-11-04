@@ -1084,45 +1084,81 @@
 
 
 
-const isSmile = (smile) => {
-    let eyes = false;
-    let mouth = false;
-    let nose = false;
-    
-    if(smile.length > 3){
-        return false;
-    }
-    if(smile.length < 2){
-        return false;
-    }
-    if(smile[0] === ":" || smile[0] === ";"){
-        eyes = true;
-    }
-    if(smile[smile.length-1] === ")" || smile[smile.length-1] === "D"){
-        mouth = true;
-    }
-    if(smile.length == 2){
-        nose = true;
-    }
-    if(smile[1] === "-" || smile[1] === "~"){
-        nose = true;
-    }
-    
-    if(eyes === false || mouth === false || nose === false){
-        return false;
-    }
-    return true;
+//const isSmile = (smile) => {
+//    let eyes = false;
+//    let mouth = false;
+//    let nose = false;
+//    
+//    if(smile.length > 3){
+//        return false;
+//    }
+//    if(smile.length < 2){
+//        return false;
+//    }
+//    if(smile[0] === ":" || smile[0] === ";"){
+//        eyes = true;
+//    }
+//    if(smile[smile.length-1] === ")" || smile[smile.length-1] === "D"){
+//        mouth = true;
+//    }
+//    if(smile.length == 2){
+//        nose = true;
+//    }
+//    if(smile[1] === "-" || smile[1] === "~"){
+//        nose = true;
+//    }
+//    
+//    if(eyes === false || mouth === false || nose === false){
+//        return false;
+//    }
+//    return true;
+//}
+//
+//const countSmileys = (arr) => {
+//    let count = 0;
+//    for(let i = 0; i < arr.length; i++){
+//        let currentSmile = arr[i];
+//        if (isSmile(currentSmile)){
+//            count++;
+//        }
+//    }
+//    return count;
+//}
+//
+//console.log(countSmileys([':)',':(',':D',':O',':;']));
+
+// the global variable
+var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+
+/* This function should add a book to the list and return the list */
+// New parameters should come before the bookName one
+
+
+function add (arr, bookName) {
+    let newBk = arr.slice();
+    newBk.push(bookName);
+    return newBk;
 }
 
-const countSmileys = (arr) => {
-    let count = 0;
-    for(let i = 0; i < arr.length; i++){
-        let currentSmile = arr[i];
-        if (isSmile(currentSmile)){
-            count++;
-        }
+/* This function should remove a book from the list and return the list */
+// New parameters should come before the bookName one
+
+function remove (arr, bookName) {
+  if (arr.indexOf(bookName) >= 0) {
+    let newList = arr.slice();
+    let index = arr.indexOf(bookName);
+    newList.splice(index,1);
+    return newList;
+
     }
-    return count;
 }
 
-console.log(countSmileys([':)',':(',':D',':O',':;']));
+//var newBookList = add(bookList, 'A Brief History of Time');
+//var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
+//var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
+
+let bookVar = add(bookList, 'A Brief History of Time');
+
+
+let nest = remove(bookVar, 'On The Electrodynamics of Moving Bodies');
+console.log(nest);
