@@ -1275,26 +1275,41 @@ var watchList = [
                 }
 ];
 
-var rating = [];
-
-//const findInfo = (ob) => {
+//var rating = [];
+//
+////const findInfo = (ob) => {
+////    let obj = {};
+////    obj.Title = ob.Title;
+////    obj.Rating = ob.Rating;
+////  rating.push(obj);
+////}
+////
+////findInfo(watchList[0])
+////
+////watchList.map(findInfo);
+//
+//watchList.map( 
+//  (x) => {
 //    let obj = {};
-//    obj.Title = ob.Title;
-//    obj.Rating = ob.Rating;
+//    obj.Title = x.Title;
+//    obj.Rated = x.Rated;
 //  rating.push(obj);
-//}
+//  }
+//);
 //
-//findInfo(watchList[0])
-//
-//watchList.map(findInfo);
+//console.log(rating);
 
-watchList.map( 
+let highRated = watchList.filter(x => x.imdbRating >= 8);
+let filteredList = [];
+
+
+highRated.map( 
   (x) => {
     let obj = {};
-    obj.Title = x.Title;
-    obj.Rated = x.Rated;
-  rating.push(obj);
+    obj.title = x.Title;
+    obj.rating = x.imdbRating;
+  filteredList.push(obj);
   }
 );
 
-console.log(rating);
+console.log(filteredList);
