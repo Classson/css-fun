@@ -1299,17 +1299,25 @@ var watchList = [
 //
 //console.log(rating);
 
-let highRated = watchList.filter(x => x.imdbRating >= 8);
-let filteredList = [];
+//let highRated = watchList.filter(x => x.imdbRating >= 8);
+//let filteredList = []; 
+//
+//
+//highRated.map( 
+//  (x) => {
+//    let obj = {};
+//    obj.title = x.Title;
+//    obj.rating = x.imdbRating;
+//  filteredList.push(obj);
+//  }
+//);
+//
+//console.log(filteredList);
 
+let nolanMovies = watchList.filter(x => x.Director === "Christopher Nolan")
 
-highRated.map( 
-  (x) => {
-    let obj = {};
-    obj.title = x.Title;
-    obj.rating = x.imdbRating;
-  filteredList.push(obj);
-  }
-);
+let nolanRatings = nolanMovies.map(x => Number(x.imdbRating));
 
-console.log(filteredList);
+let average = nolanRatings.reduce((acc, x)=> acc + x) / nolanRatings.length;
+
+console.log(average);
