@@ -1331,11 +1331,33 @@ var watchList = [
 //
 //console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
 
-var globalArray = [5, 6, 3, 2, 9];
-function nonMutatingSort(arr) {
-  // Add your code below this line
-  return [].concat(arr).sort((a,b) => a-b);
-  
-  // Add your code above this line
+//var globalArray = [5, 6, 3, 2, 9];
+//function nonMutatingSort(arr) {
+//  // Add your code below this line
+//  return [].concat(arr).sort((a,b) => a-b);
+//  
+//  // Add your code above this line
+//}
+//nonMutatingSort(globalArray);
+
+// the global variable
+var globalTitle = " Winter Is  Coming";
+
+// Add your code below this line
+function urlSlug(title) {
+  let arr = title.toLowerCase().trim().split(" ");
+    console.log(arr);
+  let newArr = [];
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] !== ""){
+      newArr.push(arr[i]);
+    }
+  }
+    console.log(newArr);
+  return newArr.join("-");
 }
-nonMutatingSort(globalArray);
+// Add your code above this line
+
+var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+
+console.log(winterComing);
