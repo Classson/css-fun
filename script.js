@@ -1340,24 +1340,68 @@ var watchList = [
 //}
 //nonMutatingSort(globalArray);
 
-// the global variable
-var globalTitle = " Winter Is  Coming";
+//// the global variable
+//var globalTitle = " Winter Is  Coming";
+//
+//// Add your code below this line
+//function urlSlug(title) {
+//  let arr = title.toLowerCase().trim().split(" ");
+//    console.log(arr);
+//  let newArr = [];
+//  for(let i = 0; i < arr.length; i++){
+//    if(arr[i] !== ""){
+//      newArr.push(arr[i]);
+//    }
+//  }
+//    console.log(newArr);
+//  return newArr.join("-");
+//}
+//// Add your code above this line
+//
+//var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+//
+//console.log(winterComing);
 
-// Add your code below this line
-function urlSlug(title) {
-  let arr = title.toLowerCase().trim().split(" ");
-    console.log(arr);
-  let newArr = [];
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] !== ""){
-      newArr.push(arr[i]);
+//Fill in the object constructor with the following methods below:
+//
+//getFirstName() getLastName() getFullName() setFirstName(first) setLastName(last) setFullName(firstAndLast)
+//Run the tests to see the expected output for each method.
+//
+//The methods that take an argument must accept only one argument and it has to be a string.
+//
+//These methods must be the only available means of interacting with the object.
+
+//Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
+//
+//cid is a 2D array listing available currency.
+//
+//The checkCashRegister() function should always return an object with a status key and a change key.
+//
+//Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is less than the change due, or if you cannot return the exact change.
+//
+//Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the change due.
+//
+//Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest order, as the value of the change key.
+
+function checkCashRegister(price, cash, cid) {
+    const cohFunc = (cashInDrawer) => {
+        let sum = 0;
+        for(let i = 0; i < cashInDrawer.length; i++){
+            sum += cashInDrawer[i][1];
+        }
+        return sum;
     }
-  }
-    console.log(newArr);
-  return newArr.join("-");
+    let cashOnHand = cohFunc(cid).toFixed(2);
+    let changeNeeded = cash - price;
+    if(cashOnHand < changeNeeded){
+        return {status: "INSUFFICIENT_FUNDS", change: []};
+    }
+    console.log(changeNeeded);
+  
 }
-// Add your code above this line
 
-var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+//checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
 
-console.log(winterComing);
+
+
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
