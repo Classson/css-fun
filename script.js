@@ -1512,13 +1512,16 @@ let romanDict = {
     '700': "DCC",
     '800': "DCCC",
     '900': "CM",
-    '1000': "M"
+    '1000': "M",
+    '2000': "MM",
+    '3000': "MMM",
+    '4000': "MMMM",
+    '5000': "MMMMM"
 }
 
 function convertToRoman(num) {
     let numArr = num.toString().split('');
-    returnStr = '';
-    console.log(numArr);
+    let returnStr = '';
     let del = 1;
     for(let i = numArr.length-1; i >= 0; i--){
         numArr[i] *= del;
@@ -1532,4 +1535,4 @@ function convertToRoman(num) {
     return returnStr;
 }
 
-convertToRoman(309);
+convertToRoman(3309);
