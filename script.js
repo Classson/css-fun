@@ -1512,22 +1512,32 @@ let romanDict = {
     '700': "DCC",
     '800': "DCCC",
     '900': "CM",
-    '1000': "M",
-    '2000': "MM",
-    '3000': "MMM",
-    '4000': "MMMM",
-    '5000': "MMMMM"
 }
 
 function convertToRoman(num) {
     let numArr = num.toString().split('');
     let returnStr = '';
+    if(numArr.length > 3){
+        for(let i = 0; i < numArr[0]; i++){
+            returnStr += "M";
+        }
     let del = 1;
     for(let i = numArr.length-1; i >= 0; i--){
         numArr[i] *= del;
         del *= 10;
     }
     console.log(numArr);
+    for(let i = 1; i < numArr.length; i++){
+        if(romanDict[numArr[i]]){
+        returnStr += romanDict[numArr[i]];}
+    }
+    return returnStr;
+    }
+    let del = 1;
+    for(let i = numArr.length-1; i >= 0; i--){
+        numArr[i] *= del;
+        del *= 10;
+    }
     for(let i = 0; i < numArr.length; i++){
         if(romanDict[numArr[i]]){
         returnStr += romanDict[numArr[i]];}
@@ -1535,4 +1545,5 @@ function convertToRoman(num) {
     return returnStr;
 }
 
-convertToRoman(3309);
+
+console.log(convertToRoman(39));
