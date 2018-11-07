@@ -1384,27 +1384,99 @@ var watchList = [
 //Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest order, as the value of the change key.
 
 function checkCashRegister(price, cash, cid) {
+    let changeArr = [["PENNY", 0], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]];
+    let returnedObj = {
+        status: "OPEN",
+        change: []
+    }
     const cohFunc = (cashInDrawer) => {
         let sum = 0;
         for(let i = 0; i < cashInDrawer.length; i++){
             sum += cashInDrawer[i][1];
-        }
+            }
         return sum;
     }
-    let cashOnHand = cohFunc(cid).toFixed(2);
-    let changeNeeded = (cash - price).toFixed(2);
+    
+    let cashOnHand = Number(cohFunc(cid).toFixed(2));
+    let changeNeeded = Number((cash - price).toFixed(2));
+    let checkChange = changeNeeded;
+    
+    console.log(cashOnHand);
+    console.log(changeNeeded);
+    
     if(cashOnHand < changeNeeded){
         return {status: "INSUFFICIENT_FUNDS", change: []};
     }
     if(cashOnHand === changeNeeded){
         return {status: "CLOSED", change: cid}
     }
-    let changeSplit = changeNeeded.split(".");
-    let dollarsNeeded = changeSplit[0];
-    let coinsNeeded = changeSplit[1];
-    console.log(coinsNeeded);
+
+    for(let i = 0; changeNeeded >= 100 && cid[8][1] > 0; i++){
+        cid[8][1] -=100;
+        changeArr[8][1] += 100;
+        changeNeeded-= 100;
+    }
+    
+    for(let i = 0; changeNeeded >= 20 && cid[7][1] > 0; i++){
+        cid[7][1] -=20;
+        changeArr[7][1] += 20;
+        changeNeeded -= 20;
+    }
+    
+    for(let i = 0; changeNeeded >= 10 && cid[6][1] > 0; i++){
+        cid[6][1] -=10;
+        changeArr[6][1] += 10;
+        changeNeeded -= 10;
+    }
+    for(let i = 0; changeNeeded >= 5 && cid[5][1] > 0; i++){
+        cid[5][1] -=5;
+        changeArr[5][1] += 5;
+        changeNeeded -= 5;
+    }
+
+    for(let i = 0; changeNeeded >= 1 && cid[4][1] > 0; i++){
+        cid[4][1] -=1;
+        changeArr[4][1] += 1;
+        changeNeeded -= 1;
+    }
+
+    for(let i = 0; changeNeeded >= .25 && cid[3][1] > 0; i++){
+        cid[3][1] -=.25;
+        changeArr[3][1] += .25;
+        changeNeeded -= .25;
+    }
+
+    for(let i = 0; changeNeeded >= .10 && cid[2][1] > 0; i++){
+        cid[2][1] -=.1;
+        changeArr[2][1] += .1;
+        changeNeeded -= .1;
+    }
+
+    for(let i = 0; changeNeeded >= .05 && cid[1][1] > 0; i++){
+        cid[1][1] -=.05;
+        changeArr[1][1] += .05;
+        changeNeeded -= .05;
+    }
+
+    for(let i = 0; changeNeeded >= .01 && cid[0][1] > 0; i++){
+        cid[0][1] -=.01;
+        changeArr[0][1] += .01;
+        changeNeeded -= .01;
+        changeNeeded = changeNeeded.toFixed(2);
+    }
+
+    for(let i = changeArr.length-1; i >= 0; i--){
+        if(changeArr[i][1] > 0){
+            returnedObj['change'].push(changeArr[i]);
+        }
+    }
+    
+    if(cohFunc(changeArr) !== checkChange){
+        return {status: "INSUFFICIENT_FUNDS", change: []};
+    }
+    
+    return returnedObj;
 }
 
-checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
 
-
+console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
