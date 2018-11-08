@@ -1484,66 +1484,88 @@ var watchList = [
 //Convert the given number into a roman numeral.
 //
 //All roman numerals answers should be provided in upper-case.
-let romanDict = {
-    '1': "I",
-    '2': "II",
-    '3': "III",
-    '4': "IV",
-    '5': "V",
-    '6': "VI",
-    '7': "VII",
-    '8': "VIII",
-    '9': "IX",
-    '10': "X",
-    '20': "XX",
-    '30': "XXX",
-    '40': "XL",
-    '50': "L",
-    '60': "LX",
-    '70': "LXX",
-    '80': "LXXX",
-    '90': "XC",
-    '100': "C",
-    '200': "CC",
-    '300': "CCC",
-    '400': "CD",
-    '500': "D",
-    '600': "DC",
-    '700': "DCC",
-    '800': "DCCC",
-    '900': "CM",
-}
+//let romanDict = {
+//    '1': "I",
+//    '2': "II",
+//    '3': "III",
+//    '4': "IV",
+//    '5': "V",
+//    '6': "VI",
+//    '7': "VII",
+//    '8': "VIII",
+//    '9': "IX",
+//    '10': "X",
+//    '20': "XX",
+//    '30': "XXX",
+//    '40': "XL",
+//    '50': "L",
+//    '60': "LX",
+//    '70': "LXX",
+//    '80': "LXXX",
+//    '90': "XC",
+//    '100': "C",
+//    '200': "CC",
+//    '300': "CCC",
+//    '400': "CD",
+//    '500': "D",
+//    '600': "DC",
+//    '700': "DCC",
+//    '800': "DCCC",
+//    '900': "CM",
+//}
+//
+//function convertToRoman(num) {
+//    let numArr = num.toString().split('');
+//    let returnStr = '';
+//    if(numArr.length > 3){
+//        for(let i = 0; i < numArr[0]; i++){
+//            returnStr += "M";
+//        }
+//    let del = 1;
+//    for(let i = numArr.length-1; i >= 0; i--){
+//        numArr[i] *= del;
+//        del *= 10;
+//    }
+//    console.log(numArr);
+//    for(let i = 1; i < numArr.length; i++){
+//        if(romanDict[numArr[i]]){
+//        returnStr += romanDict[numArr[i]];}
+//    }
+//    return returnStr;
+//    }
+//    let del = 1;
+//    for(let i = numArr.length-1; i >= 0; i--){
+//        numArr[i] *= del;
+//        del *= 10;
+//    }
+//    for(let i = 0; i < numArr.length; i++){
+//        if(romanDict[numArr[i]]){
+//        returnStr += romanDict[numArr[i]];}
+//    }
+//    return returnStr;
+//}
+//
+//
+//console.log(convertToRoman(39));
 
-function convertToRoman(num) {
-    let numArr = num.toString().split('');
-    let returnStr = '';
-    if(numArr.length > 3){
-        for(let i = 0; i < numArr[0]; i++){
-            returnStr += "M";
+//Given a list lst and a number N, create a new list that contains each number of lst at most N times without reordering. For example if N = 2, and the input is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
+
+function deleteNth(arr,n){
+    let obj = {};
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        if(obj[arr[i]]){
+            obj[arr[i]]++;
+        } else {
+            obj[arr[i]] = 1;
         }
-    let del = 1;
-    for(let i = numArr.length-1; i >= 0; i--){
-        numArr[i] *= del;
-        del *= 10;
+        
+        if(obj[arr[i]] <= n){
+            newArr.push(arr[i]);
+        }
     }
-    console.log(numArr);
-    for(let i = 1; i < numArr.length; i++){
-        if(romanDict[numArr[i]]){
-        returnStr += romanDict[numArr[i]];}
-    }
-    return returnStr;
-    }
-    let del = 1;
-    for(let i = numArr.length-1; i >= 0; i--){
-        numArr[i] *= del;
-        del *= 10;
-    }
-    for(let i = 0; i < numArr.length; i++){
-        if(romanDict[numArr[i]]){
-        returnStr += romanDict[numArr[i]];}
-    }
-    return returnStr;
+    console.log(obj);
+    return newArr;
 }
 
-
-console.log(convertToRoman(39));
+console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3));
