@@ -1550,22 +1550,45 @@ var watchList = [
 
 //Given a list lst and a number N, create a new list that contains each number of lst at most N times without reordering. For example if N = 2, and the input is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
 
-function deleteNth(arr,n){
-    let obj = {};
-    let newArr = [];
-    for(let i = 0; i < arr.length; i++){
-        if(obj[arr[i]]){
-            obj[arr[i]]++;
+//function deleteNth(arr,n){
+//    let obj = {};
+//    let newArr = [];
+//    for(let i = 0; i < arr.length; i++){
+//        if(obj[arr[i]]){
+//            obj[arr[i]]++;
+//        } else {
+//            obj[arr[i]] = 1;
+//        }
+//        
+//        if(obj[arr[i]] <= n){
+//            newArr.push(arr[i]);
+//        }
+//    }
+//    console.log(obj);
+//    return newArr;
+//}
+//
+//console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3));
+
+function kebabize(str) {
+    let newStr = '';
+    let capitalReg = /[A-Z]/g;
+    str = str.replace(/[0-9]/g, "");
+    for(let i = 0; i < str.length; i++){
+        if(str[i].match(capitalReg)){
+            newStr += `-${str[i].toLowerCase()}`
         } else {
-            obj[arr[i]] = 1;
-        }
-        
-        if(obj[arr[i]] <= n){
-            newArr.push(arr[i]);
+            newStr += str[i].toLowerCase();
         }
     }
-    console.log(obj);
-    return newArr;
+    if(newStr[0] === "-"){
+        console.log("running");
+        newStr = newStr.slice(1);
+    }
+    return newStr;
 }
 
-console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3));
+
+console.log(kebabize('MyCamelHas3Humps'));
+
+
