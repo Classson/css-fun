@@ -1601,9 +1601,11 @@ var watchList = [
 //console.log(kebabize('MyCamelHas3Humps'));
 
 function prefill(n, v) {
-    if(Number(n) != n || n < 0){
+    if(Number(n) != n || n < 0 || n != parseInt(n) || typeof(n) === 'boolean'){
         throw new TypeError(n + ' is invalid');
     }
+    if(n == 0){
+    return [];}
     let resultArr = [];
     if(resultArr.length === n){
         return resultArr;
@@ -1614,4 +1616,6 @@ function prefill(n, v) {
     return resultArr;
 }
 
-console.log(prefill("abs", 5));
+
+console.log(prefill(false, "1"));
+
