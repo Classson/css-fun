@@ -1570,25 +1570,48 @@ var watchList = [
 //
 //console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3));
 
-function kebabize(str) {
-    let newStr = '';
-    let capitalReg = /[A-Z]/g;
-    str = str.replace(/[0-9]/g, "");
-    for(let i = 0; i < str.length; i++){
-        if(str[i].match(capitalReg)){
-            newStr += `-${str[i].toLowerCase()}`
-        } else {
-            newStr += str[i].toLowerCase();
-        }
+//function kebabize(str) {
+//    let newStr = '';
+//    let capitalReg = /[A-Z]/g;
+//    str = str.replace(/[0-9]/g, "");
+//    for(let i = 0; i < str.length; i++){
+//        if(str[i].match(capitalReg)){
+//            newStr += `-${str[i].toLowerCase()}`
+//        } else {
+//            newStr += str[i].toLowerCase();
+//        }
+//    }
+//    if(newStr[0] === "-"){
+//        console.log("running");
+//        newStr = newStr.slice(1);
+//    }
+//    return newStr;
+//}
+
+//Create the function prefill that returns an array of n elements that all have the same value v. See if you can do this without using a loop.
+//
+//You have to validate input:
+//
+//v can be anything (primitive or otherwise)
+//if v is ommited, fill the array with undefined
+//if n is 0, return an empty array
+//if n is anything other than an integer or integer-formatted string (e.g. '123') that is >=0, throw a TypeError
+//When throwing a TypeError, the message should be n is invalid, where you replace n for the actual value passed to the function.
+//
+//console.log(kebabize('MyCamelHas3Humps'));
+
+function prefill(n, v) {
+    if(Number(n) != n || n < 0){
+        throw new TypeError(num + ' is invalid');
     }
-    if(newStr[0] === "-"){
-        console.log("running");
-        newStr = newStr.slice(1);
+    let resultArr = [];
+    if(resultArr.length === n){
+        return resultArr;
+    } else {
+        resultArr.push(v);
+        resultArr = resultArr.concat(prefill(n-1, v));
     }
-    return newStr;
+    return resultArr;
 }
 
-
-console.log(kebabize('MyCamelHas3Humps'));
-
-
+console.log(3, prefill(2,'2d'));
