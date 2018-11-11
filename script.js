@@ -1602,7 +1602,7 @@ var watchList = [
 
 function prefill(n, v) {
     if(Number(n) != n || n < 0){
-        throw new TypeError(num + ' is invalid');
+        throw new TypeError(n + ' is invalid');
     }
     let resultArr = [];
     if(resultArr.length === n){
@@ -1614,4 +1614,4 @@ function prefill(n, v) {
     return resultArr;
 }
 
-console.log(3, prefill(2,'2d'));
+console.log(prefill("abs", 5));
