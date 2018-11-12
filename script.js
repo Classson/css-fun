@@ -1600,22 +1600,33 @@ var watchList = [
 //
 //console.log(kebabize('MyCamelHas3Humps'));
 
-function prefill(n, v) {
-    if(Number(n) != n || n < 0 || n != parseInt(n) || typeof(n) === 'boolean'){
-        throw new TypeError(n + ' is invalid');
+//function prefill(n, v) {
+//    if(Number(n) != n || n < 0 || n != parseInt(n) || typeof(n) === 'boolean'){
+//        throw new TypeError(n + ' is invalid');
+//    }
+//    if(n == 0){
+//    return [];}
+//    let resultArr = [];
+//    if(resultArr.length === n){
+//        return resultArr;
+//    } else {
+//        resultArr.push(v);
+//        resultArr = resultArr.concat(prefill(n-1, v));
+//    }
+//    return resultArr;
+//}
+//
+//
+//console.log(prefill(false, "1"));
+
+//Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side).
+
+function dirReduc(arr){
+    let directionObj = { "NORTH": 0, "EAST": 0, "SOUTH": 0, "WEST": 0};
+    for(let i = 0; i < arr.length; i++){
+        directionObj[arr[i]] ++;
     }
-    if(n == 0){
-    return [];}
-    let resultArr = [];
-    if(resultArr.length === n){
-        return resultArr;
-    } else {
-        resultArr.push(v);
-        resultArr = resultArr.concat(prefill(n-1, v));
-    }
-    return resultArr;
+    console.log(directionObj);
 }
 
-
-console.log(prefill(false, "1"));
-
+console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
