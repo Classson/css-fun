@@ -1619,14 +1619,26 @@ var watchList = [
 //
 //console.log(prefill(false, "1"));
 
-//Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side).
+//Given a number, return a string with dash'-'marks before and after each odd integer, but do not begin or end the string with a dash mark.
 
-function dirReduc(arr){
-    let directionObj = { "NORTH": 0, "EAST": 0, "SOUTH": 0, "WEST": 0};
-    for(let i = 0; i < arr.length; i++){
-        directionObj[arr[i]] ++;
+function dashatize(num) {
+    let numArr = num.toString().split("");
+    console.log(numArr);
+    let returnStr = '';
+    for(let i = 0; i < numArr.length; i++){
+        if(numArr[i] % 2 !== 0){
+           returnStr = returnStr.concat(`-${numArr[i]}-`); 
+        } else {
+            returnStr = returnStr.concat(numArr[i]);
+        }
     }
-    console.log(directionObj);
-}
+    if(returnStr[0] === "-"){
+       returnStr = returnStr.substr(1, returnStr.length-1);
+    }
+    if(returnStr[returnStr.length-1] === "-"){
+       returnStr = returnStr.substr(0, returnStr.length-1);
+    }
+    return returnStr;
+};
 
-console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+console.log(dashatize(2725));
