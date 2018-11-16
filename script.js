@@ -1620,32 +1620,77 @@ var watchList = [
 //console.log(prefill(false, "1"));
 
 //Given a number, return a string with dash'-'marks before and after each odd integer, but do not begin or end the string with a dash mark.
+//
+//function dashatize(num) {
+//    if(Number(num) != num){
+//      return 'NaN';
+//    }
+//    let numArr = Math.abs(num).toString().split("");
+//    console.log(numArr);
+//    let returnStr = '';
+//    for(let i = 0; i < numArr.length; i++){
+//        if(numArr[i] % 2 !== 0 && returnStr[returnStr.length-1] !== "-"){
+//           returnStr = returnStr.concat(`-${numArr[i]}-`); 
+//        } 
+//        else if(numArr[i] % 2 !== 0) {
+//            returnStr = returnStr.concat(`${numArr[i]}-`);
+//        }else {
+//            returnStr = returnStr.concat(numArr[i]);
+//        }
+//    }
+//    if(returnStr[0] === "-"){
+//       returnStr = returnStr.substr(1, returnStr.length-1);
+//    }
+//    if(returnStr[returnStr.length-1] === "-"){
+//       returnStr = returnStr.substr(0, returnStr.length-1);
+//    }
+//
+//    return returnStr;
+//};
+//
+//console.log(dashatize(-1));
 
-function dashatize(num) {
-    if(Number(num) != num){
-      return 'NaN';
-    }
-    let numArr = Math.abs(num).toString().split("");
-    console.log(numArr);
-    let returnStr = '';
-    for(let i = 0; i < numArr.length; i++){
-        if(numArr[i] % 2 !== 0 && returnStr[returnStr.length-1] !== "-"){
-           returnStr = returnStr.concat(`-${numArr[i]}-`); 
-        } 
-        else if(numArr[i] % 2 !== 0) {
-            returnStr = returnStr.concat(`${numArr[i]}-`);
-        }else {
-            returnStr = returnStr.concat(numArr[i]);
+//This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+//
+//seven(times(five())); // must return 35
+//four(plus(nine())); // must return 13
+//eight(minus(three())); // must return 5
+//six(dividedBy(two())); // must return 3
+
+function zero(cb) {
+    if (cb){
+        return cb();
+    } else {
+            return 0;
         }
-    }
-    if(returnStr[0] === "-"){
-       returnStr = returnStr.substr(1, returnStr.length-1);
-    }
-    if(returnStr[returnStr.length-1] === "-"){
-       returnStr = returnStr.substr(0, returnStr.length-1);
-    }
+function one(cb) {
+return 1;}
+function two(cb) {
+return 2;}
+function three(cb) {
+return 3;}
+function four(cb) {
+return 4;}
+function five(cb) {
+    if (cb){
+        return cb();
+    } else {
+            return 5;
+        }
+function six(cb) {
+return 6;}
+function seven(cb) {
+return 7;}
+function eight(cb) {
+return 8;}
+function nine(cb) {
+return 9;}
 
-    return returnStr;
-};
+function plus() {}
+function minus() {}
+function times(cb) {
+    return cb();
+}
+function dividedBy() {}
 
-console.log(dashatize(-1));
+console.log(seven(times(five())));
