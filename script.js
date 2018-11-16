@@ -1649,48 +1649,44 @@ var watchList = [
 //};
 //
 //console.log(dashatize(-1));
-
-//This time we want to write calculations using functions and get the results. Let's have a look at some examples:
 //
-//seven(times(five())); // must return 35
-//four(plus(nine())); // must return 13
-//eight(minus(three())); // must return 5
-//six(dividedBy(two())); // must return 3
+//Each exclamation mark weight is 2; Each question mark weight is 3. Put two string left and right to the balance, Are they balanced?
+//
+//If the left side is more heavy, return "Left"; If the right side is more heavy, return "Right"; If they are balanced, return "Balance".
 
-function zero(cb) {
-    if (cb){
-        return cb();
-    } else {
-            return 0;
+function balance(left,right){
+    let leftNum = 0;
+    let rightNum = 0;
+    let leftArr = left.split("");
+    let rightArr = right.split("");
+    for(let i = 0; i < leftArr.length; i++){
+        if(leftArr[i] === '!'){
+            leftNum +=2;
         }
-function one(cb) {
-return 1;}
-function two(cb) {
-return 2;}
-function three(cb) {
-return 3;}
-function four(cb) {
-return 4;}
-function five(cb) {
-    if (cb){
-        return cb();
-    } else {
-            return 5;
+        if(leftArr[i] === '?'){
+            leftNum +=3;
         }
-function six(cb) {
-return 6;}
-function seven(cb) {
-return 7;}
-function eight(cb) {
-return 8;}
-function nine(cb) {
-return 9;}
-
-function plus() {}
-function minus() {}
-function times(cb) {
-    return cb();
+    }
+    for(let i = 0; i < rightArr.length; i++){
+        if(rightArr[i] === '!'){
+            rightNum +=2;
+        }
+        if(rightArr[i] === '?'){
+            rightNum +=3;
+        }
+    }
+    let total = leftNum - rightNum;
+    if(total < 0){
+        return "Right";
+    }
+    if(total > 0){
+        return "Left";
+    }
+    if(total === 0){
+        return "Balance"
+    }
+  
+  
 }
-function dividedBy() {}
 
-console.log(seven(times(five())));
+console.log(balance("!?!!","?!?"));
