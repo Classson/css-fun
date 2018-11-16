@@ -1622,13 +1622,19 @@ var watchList = [
 //Given a number, return a string with dash'-'marks before and after each odd integer, but do not begin or end the string with a dash mark.
 
 function dashatize(num) {
-    let numArr = num.toString().split("");
+    if(Number(num) != num){
+      return 'NaN';
+    }
+    let numArr = Math.abs(num).toString().split("");
     console.log(numArr);
     let returnStr = '';
     for(let i = 0; i < numArr.length; i++){
-        if(numArr[i] % 2 !== 0){
+        if(numArr[i] % 2 !== 0 && returnStr[returnStr.length-1] !== "-"){
            returnStr = returnStr.concat(`-${numArr[i]}-`); 
-        } else {
+        } 
+        else if(numArr[i] % 2 !== 0) {
+            returnStr = returnStr.concat(`${numArr[i]}-`);
+        }else {
             returnStr = returnStr.concat(numArr[i]);
         }
     }
@@ -1638,7 +1644,8 @@ function dashatize(num) {
     if(returnStr[returnStr.length-1] === "-"){
        returnStr = returnStr.substr(0, returnStr.length-1);
     }
+
     return returnStr;
 };
 
-console.log(dashatize(2725));
+console.log(dashatize(-1));
