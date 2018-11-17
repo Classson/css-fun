@@ -1654,39 +1654,59 @@ var watchList = [
 //
 //If the left side is more heavy, return "Left"; If the right side is more heavy, return "Right"; If they are balanced, return "Balance".
 
-function balance(left,right){
-    let leftNum = 0;
-    let rightNum = 0;
-    let leftArr = left.split("");
-    let rightArr = right.split("");
-    for(let i = 0; i < leftArr.length; i++){
-        if(leftArr[i] === '!'){
-            leftNum +=2;
+//function balance(left,right){
+//    let leftNum = 0;
+//    let rightNum = 0;
+//    let leftArr = left.split("");
+//    let rightArr = right.split("");
+//    for(let i = 0; i < leftArr.length; i++){
+//        if(leftArr[i] === '!'){
+//            leftNum +=2;
+//        }
+//        if(leftArr[i] === '?'){
+//            leftNum +=3;
+//        }
+//    }
+//    for(let i = 0; i < rightArr.length; i++){
+//        if(rightArr[i] === '!'){
+//            rightNum +=2;
+//        }
+//        if(rightArr[i] === '?'){
+//            rightNum +=3;
+//        }
+//    }
+//    let total = leftNum - rightNum;
+//    if(total < 0){
+//        return "Right";
+//    }
+//    if(total > 0){
+//        return "Left";
+//    }
+//    if(total === 0){
+//        return "Balance"
+//    }
+//  
+//  
+//}
+//
+//console.log(balance("!?!!","?!?"));
+
+//There is an array with some numbers. All numbers are equal except for one. Try to find it!
+    
+function findUniq(arr) {
+    let arrObj = {};
+    for(let i = 0; i < arr.length; i++){
+        if (arrObj[arr[i]]){
+            arrObj[arr[i]]++;
+        } else {
+            arrObj[arr[i]] = 1;
         }
-        if(leftArr[i] === '?'){
-            leftNum +=3;
+    }
+    for(num in arrObj){
+        if (arrObj[num] === 1){
+            return Number(num);
         }
     }
-    for(let i = 0; i < rightArr.length; i++){
-        if(rightArr[i] === '!'){
-            rightNum +=2;
-        }
-        if(rightArr[i] === '?'){
-            rightNum +=3;
-        }
-    }
-    let total = leftNum - rightNum;
-    if(total < 0){
-        return "Right";
-    }
-    if(total > 0){
-        return "Left";
-    }
-    if(total === 0){
-        return "Balance"
-    }
-  
-  
 }
 
-console.log(balance("!?!!","?!?"));
+console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]));
