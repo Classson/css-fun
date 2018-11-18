@@ -1711,22 +1711,22 @@ var watchList = [
 //
 //console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]));
 
-//John keeps a backup of his old personal phone book as a text file. On each line of the file he can find the phone number (formated as +X-abc-def-ghij where X stands for one or two digits), the corresponding name between < and > and the address.
-//
-//Unfortunately everything is mixed, things are not always in the same order, lines are cluttered with non-alpha-numeric characters.
-//
-//Examples of John's phone book lines:
-//
-//"/+1-541-754-3010 156 Alphand_St. <J Steeve>\n"
-//
-//" 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010!\n"
-//
-//"<Anastasia> +48-421-674-8974 Via Quirinal Roma\n"
-//
-//Could you help John with a program that, given the lines of his phone book and a phone number returns a string for this number : "Phone => num, Name => name, Address => adress"
+//Create a function that accepts dimensions, of Rows x Columns, as parameters in order to create a multiplication table sized according to the given dimensions. **The return value of the function must be an array, and the numbers must be Fixnums, NOT strings.
 
-function phone(strng, num) {
-    
+
+function multiplicationTable(row,col){
+    let resultArr = [];
+    for(let i = 1; i <= row; i++){
+        let currentRowNum = i;
+        let currentRow = [];
+        for(let j = 1; j <= col; j++){
+            currentRow.push(i * j);
+        }
+        resultArr.push(currentRow);
+    }
+    return resultArr;
 }
 
-console.log();
+console.log(multiplicationTable(3,4));
+
+//[[1,2,3,4],[2,4,6,8],[3,6,9,12]]
