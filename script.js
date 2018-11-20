@@ -1714,19 +1714,27 @@ var watchList = [
 //Create a function that accepts dimensions, of Rows x Columns, as parameters in order to create a multiplication table sized according to the given dimensions. **The return value of the function must be an array, and the numbers must be Fixnums, NOT strings.
 
 
-function multiplicationTable(row,col){
-    let resultArr = [];
-    for(let i = 1; i <= row; i++){
-        let currentRowNum = i;
-        let currentRow = [];
-        for(let j = 1; j <= col; j++){
-            currentRow.push(i * j);
-        }
-        resultArr.push(currentRow);
-    }
-    return resultArr;
+//function multiplicationTable(row,col){
+//    let resultArr = [];
+//    for(let i = 1; i <= row; i++){
+//        let currentRowNum = i;
+//        let currentRow = [];
+//        for(let j = 1; j <= col; j++){
+//            currentRow.push(i * j);
+//        }
+//        resultArr.push(currentRow);
+//    }
+//    return resultArr;
+//}
+//
+//console.log(multiplicationTable(3,4));
+
+//Some new animals have arrived at the zoo. The zoo keeper is concerned that perhaps the animals do not have the right tails. To help her, you must correct the broken function to make sure that the second argument (tail), is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+//
+//If the tail is right return true, else return false.
+
+const correctTail = (animal, tail) => {
+  if(animal[animal.length-1] === tail){
+  return true;}
+  return false;
 }
-
-console.log(multiplicationTable(3,4));
-
-//[[1,2,3,4],[2,4,6,8],[3,6,9,12]]
