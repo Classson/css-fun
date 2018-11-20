@@ -1733,8 +1733,16 @@ var watchList = [
 //
 //If the tail is right return true, else return false.
 
-const correctTail = (animal, tail) => {
-  if(animal[animal.length-1] === tail){
-  return true;}
-  return false;
+//const correctTail = (animal, tail) => {
+//  if(animal[animal.length-1] === tail){
+//  return true;}
+//  return false;
+//}
+
+//In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+function highAndLow(numbers){
+  let numbersArr = numbers.split(" ");
+  let sortedArr = numbersArr.sort((a,b)=> a-b);
+  return `${sortedArr[sortedArr.length-1]} ${sortedArr[0]}`;
 }
