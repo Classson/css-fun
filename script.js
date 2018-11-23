@@ -1740,9 +1740,54 @@ var watchList = [
 //}
 
 //In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+//
+//function highAndLow(numbers){
+//  let numbersArr = numbers.split(" ");
+//  let sortedArr = numbersArr.sort((a,b)=> a-b);
+//  return `${sortedArr[sortedArr.length-1]} ${sortedArr[0]}`;
+//}
 
-function highAndLow(numbers){
-  let numbersArr = numbers.split(" ");
-  let sortedArr = numbersArr.sort((a,b)=> a-b);
-  return `${sortedArr[sortedArr.length-1]} ${sortedArr[0]}`;
+//Write a function that accepts fight string consists of only small letters and return who wins the fight. When the left side wins return Left side wins!, when the right side wins return Right side wins!, in other case return Let's fight again!.
+
+function alphabetWar(fight){
+    let fightArr = fight.split("");
+    let leftScore = 0;
+    let rightScore = 0;
+    for(let i = 0; i < fightArr.length; i++){
+        if(fightArr[i] === 'w') {
+            leftScore += 4;
+        }
+        if(fightArr[i] === 'p'){
+            leftScore += 3;
+        }
+        if(fightArr[i] === 'b'){
+            leftScore += 2;
+        }
+        if(fightArr[i] === 's'){
+            leftScore += 1;
+        }
+        if(fightArr[i] === 'm') {
+            rightScore += 4;
+        }
+        if(fightArr[i] === 'q'){
+            rightScore += 3;
+        }
+        if(fightArr[i] === 'd'){
+            rightScore += 2;
+        }
+        if(fightArr[i] === 'z'){
+            rightScore += 1;
+        }
+    }
+    if(leftScore > rightScore){
+        return "Right side wins!";
 }
+    if(rightScore > leftScore){
+        return "Left side wins!";
+}
+    console.log(leftScore);
+
+return "Let's fight again!";
+}
+
+console.log(alphabetWar("z"));
