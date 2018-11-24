@@ -1749,45 +1749,65 @@ var watchList = [
 
 //Write a function that accepts fight string consists of only small letters and return who wins the fight. When the left side wins return Left side wins!, when the right side wins return Right side wins!, in other case return Let's fight again!.
 
-function alphabetWar(fight){
-    let fightArr = fight.split("");
-    let leftScore = 0;
-    let rightScore = 0;
-    for(let i = 0; i < fightArr.length; i++){
-        if(fightArr[i] === 'w') {
-            leftScore += 4;
-        }
-        if(fightArr[i] === 'p'){
-            leftScore += 3;
-        }
-        if(fightArr[i] === 'b'){
-            leftScore += 2;
-        }
-        if(fightArr[i] === 's'){
-            leftScore += 1;
-        }
-        if(fightArr[i] === 'm') {
-            rightScore += 4;
-        }
-        if(fightArr[i] === 'q'){
-            rightScore += 3;
-        }
-        if(fightArr[i] === 'd'){
-            rightScore += 2;
-        }
-        if(fightArr[i] === 'z'){
-            rightScore += 1;
+//function alphabetWar(fight){
+//    let fightArr = fight.split("");
+//    let leftScore = 0;
+//    let rightScore = 0;
+//    for(let i = 0; i < fightArr.length; i++){
+//        if(fightArr[i] === 'w') {
+//            leftScore += 4;
+//        }
+//        if(fightArr[i] === 'p'){
+//            leftScore += 3;
+//        }
+//        if(fightArr[i] === 'b'){
+//            leftScore += 2;
+//        }
+//        if(fightArr[i] === 's'){
+//            leftScore += 1;
+//        }
+//        if(fightArr[i] === 'm') {
+//            rightScore += 4;
+//        }
+//        if(fightArr[i] === 'q'){
+//            rightScore += 3;
+//        }
+//        if(fightArr[i] === 'd'){
+//            rightScore += 2;
+//        }
+//        if(fightArr[i] === 'z'){
+//            rightScore += 1;
+//        }
+//    }
+//    if(leftScore > rightScore){
+//        return "Right side wins!";
+//}
+//    if(rightScore > leftScore){
+//        return "Left side wins!";
+//}
+//return "Let's fight again!";
+//}
+//
+//console.log(alphabetWar("z"));
+
+
+//Polycarpus works as a DJ in the best Berland nightclub, and he often uses dubstep music in his performance. Recently, he has decided to take a couple of old songs and make dubstep remixes from them.
+//
+//Let's assume that a song consists of some number of words. To make the dubstep remix of this song, Polycarpus inserts a certain number of words "WUB" before the first word of the song (the number may be zero), after the last word (the number may be zero), and between words (at least one between any pair of neighbouring words), and then the boy glues together all the words, including "WUB", in one string and plays the song at the club.
+//
+//For example, a song with words "I AM X" can transform into a dubstep remix as "WUBWUBIWUBAMWUBWUBX" and cannot transform into "WUBWUBIAMWUBX".
+//
+//Recently, Jonny has heard Polycarpus's new dubstep track, but since he isn't into modern music, he decided to find out what was the initial song that Polycarpus remixed. Help Jonny restore the original song.
+
+function songDecoder(song){
+    let wordsArr = song.split("WUB");
+    let realWords = [];
+    for(let i = 0; i < wordsArr.length; i++){
+        if(wordsArr[i]){
+            realWords.push(wordsArr[i]);
         }
     }
-    if(leftScore > rightScore){
-        return "Right side wins!";
-}
-    if(rightScore > leftScore){
-        return "Left side wins!";
-}
-    console.log(leftScore);
-
-return "Let's fight again!";
+    return realWords.join(' ').trim();
 }
 
-console.log(alphabetWar("z"));
+console.log(songDecoder("AWUBWUBWUBBWUBWUBWUBC"));
