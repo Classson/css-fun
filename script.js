@@ -1834,51 +1834,59 @@ var watchList = [
 //
 //console.log(outed({'tim':0, 'jim':2, 'randy':0, 'sandy':7, 'andy':0, 'katie':5, 'laura':1, 'saajid':2, 'alex':3, 'john':2, 'mr':0}, 'laura'));
 
-function alphabetWar(fight){
-    let newFight = fight.split('');
-    let sum = 0;
-    let dict = {"w" : [4, "m"],
-                "p" : [3, "q"],
-                "b" : [2, "d"],
-                "s" : [1, "z"],
-                "t" : [0, "t"],
-                "j" : [0, "j"],
-                "z" : [-1, "s"],
-                "d" : [-2, "b"],
-                "q" : [-3, "p"],
-                "m" : [-4, "w"]}
-    for(let i = 0; i < newFight.length; i++){
-        if(newFight[i] === "t"){
-            if(newFight[i-1] === 'm' || newFight[i-1] ==='q' || newFight[i-1] ==='d' || newFight[i-1] ==='z'){
-                newFight[i-1] = dict[newFight[i-1]][1];
-            }
-            if(newFight[i+1] === 'm'|| newFight[i+1] === 'q' || newFight[i+1] === 'd' || newFight[i+1] === 'z'){
-                newFight[i+1] = dict[newFight[i+1]][1];
-            }
-        }
-        if(newFight[i] === "j"){
-            if(newFight[i-1] === 'w' || newFight[i-1] ==='p' || newFight[i-1] ==='b' || newFight[i-1] ==='s'){
-                newFight[i-1] = dict[newFight[i-1]][1];
-            }
-            if(newFight[i+1] === 'w'|| newFight[i+1] === 'p' || newFight[i+1] === 'b' || newFight[i+1] === 's'){
-                newFight[i+1] = dict[newFight[i+1]][1];
-            } 
-        }
-    }
-    console.log(newFight);
-    for(let i = 0; i < newFight.length; i++){
-        if(dict[newFight[i]]){
-          sum += dict[newFight[i]][0];  
-        }
-    }
-    console.log(sum);
-    if(sum > 0){
-        return "Left side wins!";
-    }
-    if(sum < 0){
-        return "Right side wins!";
-    }
-    return "Let's fight again!";
-}
+//function alphabetWar(fight){
+//    let newFight = fight.split('');
+//    let sum = 0;
+//    let dict = {"w" : [4, "m"],
+//                "p" : [3, "q"],
+//                "b" : [2, "d"],
+//                "s" : [1, "z"],
+//                "t" : [0, "t"],
+//                "j" : [0, "j"],
+//                "z" : [-1, "s"],
+//                "d" : [-2, "b"],
+//                "q" : [-3, "p"],
+//                "m" : [-4, "w"]}
+//    for(let i = 0; i < newFight.length; i++){
+//        if(newFight[i] === "t"){
+//            if(newFight[i-1] === 'm' || newFight[i-1] ==='q' || newFight[i-1] ==='d' || newFight[i-1] ==='z'){
+//                newFight[i-1] = dict[newFight[i-1]][1];
+//            }
+//            if(newFight[i+1] === 'm'|| newFight[i+1] === 'q' || newFight[i+1] === 'd' || newFight[i+1] === 'z'){
+//                newFight[i+1] = dict[newFight[i+1]][1];
+//            }
+//        }
+//        if(newFight[i] === "j"){
+//            if(newFight[i-1] === 'w' || newFight[i-1] ==='p' || newFight[i-1] ==='b' || newFight[i-1] ==='s'){
+//                newFight[i-1] = dict[newFight[i-1]][1];
+//            }
+//            if(newFight[i+1] === 'w'|| newFight[i+1] === 'p' || newFight[i+1] === 'b' || newFight[i+1] === 's'){
+//                newFight[i+1] = dict[newFight[i+1]][1];
+//            } 
+//        }
+//    }
+//    console.log(newFight);
+//    for(let i = 0; i < newFight.length; i++){
+//        if(dict[newFight[i]]){
+//          sum += dict[newFight[i]][0];  
+//        }
+//    }
+//    console.log(sum);
+//    if(sum > 0){
+//        return "Left side wins!";
+//    }
+//    if(sum < 0){
+//        return "Right side wins!";
+//    }
+//    return "Let's fight again!";
+//}
+//
+//console.log(alphabetWar('wtzjqt'));
 
-console.log(alphabetWar('wtzjqt'));
+//In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up.
+//
+//wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+
+function wave(){
+
+}
