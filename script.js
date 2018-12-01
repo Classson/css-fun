@@ -1890,3 +1890,17 @@ var watchList = [
 function wave(){
  //test
 }
+
+let myObj = {hello: 'world'};
+let target = {};
+
+const shallowObjectAssign = (obj, targ) => {
+  for(const key in obj){
+  	targ[key] = obj[key];
+  }
+  return targ;
+}
+
+let returnedKey = shallowObjectAssign(target, myObj);
+
+console.dir(returnedKey);
